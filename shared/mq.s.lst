@@ -1,0 +1,270 @@
+                                                        // BEEHIVE GCC 2010.07.09.18.09  (no pre-modify) (mult)
+                                                        // ------------------------------------------------------------
+                                                        // Standard as definitions
+                                                        
+$0                                                      zero = $0    // fixed zero
+$0                                                      void = $0    // void destination
+$1                                                      r1 = $1      // function return value
+$2                                                      r2 = $2      // not callee save
+$3                                                      r3 = $3      // not callee save, function argument 1
+$4                                                      r4 = $4      // not callee save, function argument 2
+$5                                                      r5 = $5      // not callee save, function argument 3
+$6                                                      r6 = $6      // not callee save, function argument 4
+$7                                                      r7 = $7      // not callee save, function argument 5
+$8                                                      r8 = $8      // not callee save, function argument 6
+$9                                                      r9 = $9      // callee save
+$10                                                     r10 = $10    // callee save
+$11                                                     r11 = $11    // callee save
+$12                                                     r12 = $12    // callee save
+$13                                                     r13 = $13    // callee save
+$14                                                     r14 = $14    // callee save
+$15                                                     r15 = $15    // callee save
+$16                                                     r16 = $16    // callee save
+$17                                                     r17 = $17    // callee save
+$18                                                     r18 = $18    // callee save
+$19                                                     r19 = $19    // callee save
+$20                                                     r20 = $20    // callee save
+$21                                                     r21 = $21    // callee save
+$22                                                     r22 = $22    // callee save
+$23                                                     fp = $23     // callee save, frame pointer
+$24                                                     t1 = $24     // not callee save, temporary 1, not avail for reg alloc
+$25                                                     t2 = $25     // not callee save, temporary 2, not avail for reg alloc
+$26                                                     t3 = $26     // not callee save, temporary 3, not avail for reg alloc
+$27                                                     p1 = $27     // not callee save, platform 1, not avail for reg alloc
+$28                                                     sp = $28     // callee save, stack pointer
+$29                                                     vb = $29     // not callee save, rw & rb only, not avail for reg alloc
+                                                        
+  00000000                                                  .assume   zero,0
+                                                        
+                                                        // ------------------------------------------------------------
+                                                                .file   "mq.c"
+                                                                .code
+                                                                .alignw 1
+                                                                .type   _mqDiscard, @function
+C 00000000                                              _mqDiscard:
+C 00000000 e7001246  AQW = $28 = $28 SUB 00000004               aqw_sub     sp,sp,4
+C 00000001 f7c00305  WQ = $31 = LINK OR 00000000                ld          wq,link
+C 00000002 e7000207  AQR = $28 = $28 ADD 00000000               aqr_add     sp,sp,0
+C 00000003 e7001205  $28 = $28 ADD 00000004                     add         sp,sp,4
+C 00000004 e800030c  J RQ OR 00000000                           j           rq
+                                                                .size   _mqDiscard, .-_mqDiscard
+                                                                .alignw 1
+                                                                .globl  _mq_register
+                                                                .type   _mq_register, @function
+C 00000005                                              _mq_register:
+C 00000005 e7001246  AQW = $28 = $28 SUB 00000004               aqw_sub     sp,sp,4
+C 00000006 f7c00305  WQ = $31 = LINK OR 00000000                ld          wq,link
+C 00000007 e7002245  $28 = $28 SUB 00000008                     sub         sp,sp,8
+C 00000008 e7401206  AQW = $29 = $28 ADD 00000004               aqw_add     vb,sp,4
+C 00000009 57c00305  WQ = $31 = $10 OR 00000000                 ld          wq,r10
+C 0000000a e7400306  AQW = $29 = $28 OR 00000000                aqw_ld      vb,sp
+C 0000000b 4fc00305  WQ = $31 = $9 OR 00000000                  ld          wq,r9
+C 0000000c 1a800305  $10 = $3 OR 00000000                       ld          r10,r3
+C 0000000d 22400305  $9 = $4 OR 00000000                        ld          r9,r4
+C 0000000e 00000003* LINK = 00000000                            aqr_long_ld vb,_mqMutex
+C 0000000f f7401307* AQR = $29 = LINK OR 00000004       
+C 00000010 ef400245  $29 = RQ SUB 00000000                      sub         vb,rq,0
+C 00000011 f800920a  JZ PC ADD 00000024                         jz          .L11
+C 00000012                                              .L4:
+C 00000012 0040fe05  $1 = $0 ADD 0000003f                       ld          r1,63
+C 00000013 0f402845  $29 = $1 SUB $10                           sub         vb,r1,r10
+C 00000014 f800220b  JC PC ADD 00000008                         jc          .L12
+C 00000015 e7400307  AQR = $29 = $28 OR 00000000                aqr_ld      vb,sp
+C 00000016 ea400305  $9 = RQ OR 00000000                        ld          r9,rq
+C 00000017 e7401207  AQR = $29 = $28 ADD 00000004               aqr_add     vb,sp,4
+C 00000018 ea800305  $10 = RQ OR 00000000                       ld          r10,rq
+C 00000019 e7002207  AQR = $28 = $28 ADD 00000008               aqr_add     sp,sp,8
+C 0000001a e7001205  $28 = $28 ADD 00000004                     add         sp,sp,4
+C 0000001b e800030c  J RQ OR 00000000                           j           rq
+C 0000001c                                              .L12:
+C 0000001c 00000003* LINK = 00000000                            aqr_long_ld vb,_mqMutex
+C 0000001d f7401307* AQR = $29 = LINK OR 00000004       
+C 0000001e e8c00305  $3 = RQ OR 00000000                        ld          r3,rq
+C 0000001f 00000003* LINK = 00000000                            long_call   _mutex_acquire
+C 00000020 f0000308* CALL LINK OR 00000000              
+C 00000021 00000003* LINK = 00000000                            aqr_long_ld vb,_mqHandlers
+C 00000022 f7400307* AQR = $29 = LINK OR 00000000       
+C 00000023 e8800305  $2 = RQ OR 00000000                        ld          r2,rq
+C 00000024 4f400245  $29 = $9 SUB 00000000                      sub         vb,r9,0
+C 00000025 f800a60a  JZ PC ADD 00000029                         jz          .L13
+C 00000026                                              .L7:
+C 00000026 50440301  $1 = $10 OR 00000000 LSL 2                 lsl         r1,r10,2
+C 00000027 17400406  AQW = $29 = $2 ADD $1                      aqw_add     vb,r2,r1
+C 00000028 4fc00305  WQ = $31 = $9 OR 00000000                  ld          wq,r9
+C 00000029 00000003* LINK = 00000000                            aqr_long_ld vb,_mqMutex
+C 0000002a f7401307* AQR = $29 = LINK OR 00000004       
+C 0000002b e8c00305  $3 = RQ OR 00000000                        ld          r3,rq
+C 0000002c 00000003* LINK = 00000000                            long_call   _mutex_release
+C 0000002d f0000308* CALL LINK OR 00000000              
+C 0000002e e7400307  AQR = $29 = $28 OR 00000000                aqr_ld      vb,sp
+C 0000002f ea400305  $9 = RQ OR 00000000                        ld          r9,rq
+C 00000030 e7401207  AQR = $29 = $28 ADD 00000004               aqr_add     vb,sp,4
+C 00000031 ea800305  $10 = RQ OR 00000000                       ld          r10,rq
+C 00000032 e7002207  AQR = $28 = $28 ADD 00000008               aqr_add     sp,sp,8
+C 00000033 e7001205  $28 = $28 ADD 00000004                     add         sp,sp,4
+C 00000034 e800030c  J RQ OR 00000000                           j           rq
+C 00000035                                              .L11:
+C 00000035 00000003* LINK = 00000000                            long_call   _mutex_create
+C 00000036 f0000308* CALL LINK OR 00000000              
+C 00000037 00000003* LINK = 00000000                            aqw_long_ld vb,_mqMutex
+C 00000038 f7401306* AQW = $29 = LINK OR 00000004       
+C 00000039 0fc00305  WQ = $31 = $1 OR 00000000                  ld          wq,r1
+C 0000003a 00c40205  $3 = $0 ADD 00000100                       ld          r3,256
+C 0000003b 00000003* LINK = 00000000                            long_call   _malloc
+C 0000003c f0000308* CALL LINK OR 00000000              
+C 0000003d 00000003* LINK = 00000000                            aqw_long_ld vb,_mqHandlers
+C 0000003e f7400306* AQW = $29 = LINK OR 00000000       
+C 0000003f 0fc00305  WQ = $31 = $1 OR 00000000                  ld          wq,r1
+C 00000040 008000c5  $2 = $0 ANDN $0                            ld          r2,0
+C 00000041                                              .L5:
+C 00000041 0f400806  AQW = $29 = $1 ADD $2                      aqw_add     vb,r1,r2
+C 00000042 00000003* LINK = 00000000                            long_ld     wq,_mqDiscard
+C 00000043 f7c00305* WQ = $31 = LINK OR 00000000        
+C 00000044 10801205  $2 = $2 ADD 00000004                       add         r2,r2,4
+C 00000045 00c40205  $3 = $0 ADD 00000100                       ld          r3,256
+C 00000046 17400c45  $29 = $2 SUB $3                            sub         vb,r2,r3
+C 00000047 f8001a4e  JNZ PC SUB 00000006                        jnz         .L5
+C 00000048 00000053* LINK = 00000050                            long_ld     r3,_mqReceiver
+C 00000049 f0c00705* $3 = LINK OR 00000001              
+C 0000004a 010000c5  $4 = $0 ANDN $0                            ld          r4,0
+C 0000004b 00000003* LINK = 00000000                            long_call   _thread_fork
+C 0000004c f0000308* CALL LINK OR 00000000              
+C 0000004d f800ee4c  J PC SUB 0000003b                          j           .L4
+C 0000004e                                              .L13:
+C 0000004e 00000003* LINK = 00000000                            long_ld     r9,_mqDiscard
+C 0000004f f2400305* $9 = LINK OR 00000000              
+C 00000050 f800aa4c  J PC SUB 0000002a                          j           .L7
+                                                                .size   _mq_register, .-_mq_register
+                                                                .alignw 1
+                                                                .type   _mqReceiver, @function
+C 00000051                                              _mqReceiver:
+C 00000051 e7001246  AQW = $28 = $28 SUB 00000004               aqw_sub     sp,sp,4
+C 00000052 f7c00305  WQ = $31 = LINK OR 00000000                ld          wq,link
+C 00000053 e7047245  $28 = $28 SUB 0000011c                     sub         sp,sp,284
+C 00000054 e7407206  AQW = $29 = $28 ADD 0000001c               aqw_add     vb,sp,28
+C 00000055 87c00305  WQ = $31 = $16 OR 00000000                 ld          wq,r16
+C 00000056 e7406206  AQW = $29 = $28 ADD 00000018               aqw_add     vb,sp,24
+C 00000057 7fc00305  WQ = $31 = $15 OR 00000000                 ld          wq,r15
+C 00000058 e7405206  AQW = $29 = $28 ADD 00000014               aqw_add     vb,sp,20
+C 00000059 77c00305  WQ = $31 = $14 OR 00000000                 ld          wq,r14
+C 0000005a e7404206  AQW = $29 = $28 ADD 00000010               aqw_add     vb,sp,16
+C 0000005b 6fc00305  WQ = $31 = $13 OR 00000000                 ld          wq,r13
+C 0000005c e7403206  AQW = $29 = $28 ADD 0000000c               aqw_add     vb,sp,12
+C 0000005d 67c00305  WQ = $31 = $12 OR 00000000                 ld          wq,r12
+C 0000005e e7402206  AQW = $29 = $28 ADD 00000008               aqw_add     vb,sp,8
+C 0000005f 5fc00305  WQ = $31 = $11 OR 00000000                 ld          wq,r11
+C 00000060 e7401206  AQW = $29 = $28 ADD 00000004               aqw_add     vb,sp,4
+C 00000061 57c00305  WQ = $31 = $10 OR 00000000                 ld          wq,r10
+C 00000062 e7400306  AQW = $29 = $28 OR 00000000                aqw_ld      vb,sp
+C 00000063 4fc00305  WQ = $31 = $9 OR 00000000                  ld          wq,r9
+C 00000064 00000003* LINK = 00000000                            long_ld     r14,_thread_yield
+C 00000065 f3800305* $14 = LINK OR 00000000             
+C 00000066 e3008205  $12 = $28 ADD 00000020                     add         r12,sp,32
+C 00000067 00000003* LINK = 00000000                            long_ld     r13,_message_recv
+C 00000068 f3400305* $13 = LINK OR 00000000             
+C 00000069 00000003* LINK = 00000000                            long_ld     r16,_mutex_acquire
+C 0000006a f4000305* $16 = LINK OR 00000000             
+C 0000006b 00000003* LINK = 00000000                            long_ld     r15,_mutex_release
+C 0000006c f3c00305* $15 = LINK OR 00000000             
+C 0000006d f8000a0c  J PC ADD 00000002                          j           .L18
+C 0000006e                                              .L16:
+C 0000006e 70000308  CALL $14 OR 00000000                       call        r14
+C 0000006f                                              .L18:
+C 0000006f 60c00305  $3 = $12 OR 00000000                       ld          r3,r12
+C 00000070 68000308  CALL $13 OR 00000000                       call        r13
+C 00000071 0ac00305  $11 = $1 OR 00000000                       ld          r11,r1
+C 00000072 0f400245  $29 = $1 SUB 00000000                      sub         vb,r1,0
+C 00000073 f800164a  JZ PC SUB 00000005                         jz          .L16
+C 00000074 0a540300  $9 = $1 OR 00000000 LSR 10                 lsr         r9,r1,10
+C 00000075 4a403e85  $9 = $9 AND 0000000f                       and         r9,r9,15
+C 00000076 00000003* LINK = 00000000                            aqr_long_ld vb,_mqMutex
+C 00000077 f7401307* AQR = $29 = LINK OR 00000004       
+C 00000078 e8c00305  $3 = RQ OR 00000000                        ld          r3,rq
+C 00000079 80000308  CALL $16 OR 00000000                       call        r16
+C 0000007a 48840301  $2 = $9 OR 00000000 LSL 2                  lsl         r2,r9,2
+C 0000007b 00000003* LINK = 00000000                            aqr_long_ld vb,_mqHandlers
+C 0000007c f7400307* AQR = $29 = LINK OR 00000000       
+C 0000007d e8400305  $1 = RQ OR 00000000                        ld          r1,rq
+C 0000007e 0f400807  AQR = $29 = $1 ADD $2                      aqr_add     vb,r1,r2
+C 0000007f ea800305  $10 = RQ OR 00000000                       ld          r10,rq
+C 00000080 00000003* LINK = 00000000                            aqr_long_ld vb,_mqMutex
+C 00000081 f7401307* AQR = $29 = LINK OR 00000004       
+C 00000082 e8c00305  $3 = RQ OR 00000000                        ld          r3,rq
+C 00000083 78000308  CALL $15 OR 00000000                       call        r15
+C 00000084 590c0300  $4 = $11 OR 00000000 LSR 6                 lsr         r4,r11,6
+C 00000085 48c00305  $3 = $9 OR 00000000                        ld          r3,r9
+C 00000086 21003e85  $4 = $4 AND 0000000f                       and         r4,r4,15
+C 00000087 61400305  $5 = $12 OR 00000000                       ld          r5,r12
+C 00000088 5980fe85  $6 = $11 AND 0000003f                      and         r6,r11,63
+C 00000089 50000308  CALL $10 OR 00000000                       call        r10
+C 0000008a 70000308  CALL $14 OR 00000000                       call        r14
+C 0000008b f800724c  J PC SUB 0000001c                          j           .L18
+                                                                .size   _mqReceiver, .-_mqReceiver
+                                                                .local  _mqMutex
+                                                                .comm   _mqMutex,4,4
+                                                                .local  _mqHandlers
+                                                                .comm   _mqHandlers,4,4
+                                                                .ident  "GCC: (GNU) 4.3.3"
+
+assume   $0 = 00000000
+
+                        .text + 0000008c     .
+                        .text + 00000035     .L11
+                        .text + 0000001c     .L12
+                        .text + 0000004e     .L13
+                        .text + 0000006e     .L16
+                        .text + 0000006f     .L18
+                        .text + 00000012     .L4
+                        .text + 00000041     .L5
+                        .text + 00000026     .L7
+                             <undefined>  E  _malloc
+                             <undefined>  E  _message_recv
+                        .text + 00000005  G  _mq_register
+                        .text + 00000000     _mqDiscard
+                         .bss + 00000000     _mqHandlers
+                         .bss + 00000004     _mqMutex
+                        .text + 00000051     _mqReceiver
+                             <undefined>  E  _mutex_acquire
+                             <undefined>  E  _mutex_create
+                             <undefined>  E  _mutex_release
+                             <undefined>  E  _thread_fork
+                             <undefined>  E  _thread_yield
+                                00000000     code.rota
+                                00000001     code.step
+                                00000002     data.rota
+                                00000004     data.step
+                                     $23     fp
+                                    link     link
+                                     $27     p1
+                                      pc     pc
+                                      $1     r1
+                                     $10     r10
+                                     $11     r11
+                                     $12     r12
+                                     $13     r13
+                                     $14     r14
+                                     $15     r15
+                                     $16     r16
+                                     $17     r17
+                                     $18     r18
+                                     $19     r19
+                                      $2     r2
+                                     $20     r20
+                                     $21     r21
+                                     $22     r22
+                                      $3     r3
+                                      $4     r4
+                                      $5     r5
+                                      $6     r6
+                                      $7     r7
+                                      $8     r8
+                                      $9     r9
+                                      rq     rq
+                                     $28     sp
+                                     $24     t1
+                                     $25     t2
+                                     $26     t3
+                                     $29     vb
+                                      $0     void
+                                      wq     wq
+                                      $0     zero

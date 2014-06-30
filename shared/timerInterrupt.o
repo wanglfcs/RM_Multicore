@@ -1,0 +1,19 @@
+<object file="timerInterrupt.o" coderota="0" datarota="2">
+  <segment name=".text" kind="code" rota="00000000" ibase="00000000" isize="00000009" alignbic="00000000">
+    <w v="1fc00305" />
+    <w v="07406a06" />
+    <w v="f000030c" />
+    <w v="1fc00305" />
+    <w v="0740ea06" />
+    <w v="f000030c" />
+    <w v="1fc00305" />
+    <w v="07416a06" />
+    <w v="f000030c" />
+  </segment>
+  <segment name=".data" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <segment name=".bss" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <local name="." seg=".text" off="00000009" />
+  <globl name="_set_handlerR" seg=".text" off="00000006" />
+  <globl name="_set_mask" seg=".text" off="00000000" />
+  <globl name="_set_timerInterval" seg=".text" off="00000003" />
+</object>

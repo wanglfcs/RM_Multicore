@@ -1,0 +1,325 @@
+                                                        // BEEHIVE GCC 2010.07.09.18.09  (no pre-modify) (mult)
+                                                        // ------------------------------------------------------------
+                                                        // Standard as definitions
+                                                        
+$0                                                      zero = $0    // fixed zero
+$0                                                      void = $0    // void destination
+$1                                                      r1 = $1      // function return value
+$2                                                      r2 = $2      // not callee save
+$3                                                      r3 = $3      // not callee save, function argument 1
+$4                                                      r4 = $4      // not callee save, function argument 2
+$5                                                      r5 = $5      // not callee save, function argument 3
+$6                                                      r6 = $6      // not callee save, function argument 4
+$7                                                      r7 = $7      // not callee save, function argument 5
+$8                                                      r8 = $8      // not callee save, function argument 6
+$9                                                      r9 = $9      // callee save
+$10                                                     r10 = $10    // callee save
+$11                                                     r11 = $11    // callee save
+$12                                                     r12 = $12    // callee save
+$13                                                     r13 = $13    // callee save
+$14                                                     r14 = $14    // callee save
+$15                                                     r15 = $15    // callee save
+$16                                                     r16 = $16    // callee save
+$17                                                     r17 = $17    // callee save
+$18                                                     r18 = $18    // callee save
+$19                                                     r19 = $19    // callee save
+$20                                                     r20 = $20    // callee save
+$21                                                     r21 = $21    // callee save
+$22                                                     r22 = $22    // callee save
+$23                                                     fp = $23     // callee save, frame pointer
+$24                                                     t1 = $24     // not callee save, temporary 1, not avail for reg alloc
+$25                                                     t2 = $25     // not callee save, temporary 2, not avail for reg alloc
+$26                                                     t3 = $26     // not callee save, temporary 3, not avail for reg alloc
+$27                                                     p1 = $27     // not callee save, platform 1, not avail for reg alloc
+$28                                                     sp = $28     // callee save, stack pointer
+$29                                                     vb = $29     // not callee save, rw & rb only, not avail for reg alloc
+                                                        
+  00000000                                                  .assume   zero,0
+                                                        
+                                                        // ------------------------------------------------------------
+                                                                .file   "mcMain.c"
+                                                                .code
+                                                                .alignw 1
+                                                                .type   _mc_exit, @function
+C 00000000                                              _mc_exit:
+C 00000000 e7001246  AQW = $28 = $28 SUB 00000004               aqw_sub     sp,sp,4
+C 00000001 f7c00305  WQ = $31 = LINK OR 00000000                ld          wq,link
+C 00000002                                              .L2:
+C 00000002 f800020c  J PC ADD 00000000                          j           .L2
+                                                                .size   _mc_exit, .-_mc_exit
+                                                                .data
+D 00000000                                              .LC0:
+D 00000000 0a  25  64  20                                       .string "\n%d cores, clock speed is %d MHz\n"
+D 00000004 63  6f  72  65                               
+D 00000008 73  2c  20  63                               
+D 0000000c 6c  6f  63  6b                               
+D 00000010 20  73  70  65                               
+D 00000014 65  64  20  69                               
+D 00000018 73  20  25  64                               
+D 0000001c 20  4d  48  7a                               
+D 00000020 0a  00                                       
+                                                                .code
+                                                                .alignw 1
+                                                                .globl  _main
+                                                                .type   _main, @function
+C 00000003                                              _main:
+C 00000003 e7001246  AQW = $28 = $28 SUB 00000004               aqw_sub     sp,sp,4
+C 00000004 f7c00305  WQ = $31 = LINK OR 00000000                ld          wq,link
+C 00000005 e7003245  $28 = $28 SUB 0000000c                     sub         sp,sp,12
+C 00000006 07400a07  AQR = $29 = $0 ADD 00000002                aqr_ld      vb,2
+C 00000007 e8400305  $1 = RQ OR 00000000                        ld          r1,rq
+C 00000008 07400a07  AQR = $29 = $0 ADD 00000002                aqr_ld      vb,2
+C 00000009 e8800305  $2 = RQ OR 00000000                        ld          r2,rq
+C 0000000a e7400306  AQW = $29 = $28 OR 00000000                aqw_ld      vb,sp
+C 0000000b 00000003* LINK = 00000000                            long_ld     wq,.LC0
+C 0000000c f7c00305* WQ = $31 = LINK OR 00000000        
+C 0000000d 085c0300  $1 = $1 OR 00000000 LSR 14                 lsr         r1,r1,14
+C 0000000e 08403e85  $1 = $1 AND 0000000f                       and         r1,r1,15
+C 0000000f e7401206  AQW = $29 = $28 ADD 00000004               aqw_add     vb,sp,4
+C 00000010 0fc00645  WQ = $31 = $1 SUB 00000001                 sub         wq,r1,1
+C 00000011 10a40300  $2 = $2 OR 00000000 LSR 18                 lsr         r2,r2,18
+C 00000012 e7402206  AQW = $29 = $28 ADD 00000008               aqw_add     vb,sp,8
+C 00000013 17c1fe85  WQ = $31 = $2 AND 0000007f                 and         wq,r2,127
+C 00000014 00000003* LINK = 00000000                            long_call   _printf
+C 00000015 f0000308* CALL LINK OR 00000000              
+C 00000016 00000023* LINK = 00000020                            long_ld     r3,_forkee
+C 00000017 f0c00b05* $3 = LINK OR 00000002              
+C 00000018 010000c5  $4 = $0 ANDN $0                            ld          r4,0
+C 00000019 00000003* LINK = 00000000                            long_call   _thread_fork
+C 0000001a f0000308* CALL LINK OR 00000000              
+C 0000001b 00c000c5  $3 = $0 ANDN $0                            ld          r3,0
+C 0000001c 00000003* LINK = 00000000                            long_call   _thread_exit
+C 0000001d f0000308* CALL LINK OR 00000000              
+C 0000001e 004000c5  $1 = $0 ANDN $0                            ld          r1,0
+C 0000001f e7003207  AQR = $28 = $28 ADD 0000000c               aqr_add     sp,sp,12
+C 00000020 e7001205  $28 = $28 ADD 00000004                     add         sp,sp,4
+C 00000021 e800030c  J RQ OR 00000000                           j           rq
+                                                                .size   _main, .-_main
+                                                                .data
+D 00000022                                              .LC1:
+D 00000022 61  64                                               .string "addr of mc_main: %x\n"
+D 00000024 64  72  20  6f                               
+D 00000028 66  20  6d  63                               
+D 0000002c 5f  6d  61  69                               
+D 00000030 6e  3a  20  25                               
+D 00000034 78  0a  00                                   
+D 00000037                                              .LC2:
+D 00000037 61                                                   .string "after mc_init(), going to send messages to slave cores\n"
+D 00000038 66  74  65  72                               
+D 0000003c 20  6d  63  5f                               
+D 00000040 69  6e  69  74                               
+D 00000044 28  29  2c  20                               
+D 00000048 67  6f  69  6e                               
+D 0000004c 67  20  74  6f                               
+D 00000050 20  73  65  6e                               
+D 00000054 64  20  6d  65                               
+D 00000058 73  73  61  67                               
+D 0000005c 65  73  20  74                               
+D 00000060 6f  20  73  6c                               
+D 00000064 61  76  65  20                               
+D 00000068 63  6f  72  65                               
+D 0000006c 73  0a  00                                   
+                                                                .code
+                                                                .alignw 1
+                                                                .type   _forkee, @function
+C 00000022                                              _forkee:
+C 00000022 e7001246  AQW = $28 = $28 SUB 00000004               aqw_sub     sp,sp,4
+C 00000023 f7c00305  WQ = $31 = LINK OR 00000000                ld          wq,link
+C 00000024 e7008245  $28 = $28 SUB 00000020                     sub         sp,sp,32
+C 00000025 e7407206  AQW = $29 = $28 ADD 0000001c               aqw_add     vb,sp,28
+C 00000026 77c00305  WQ = $31 = $14 OR 00000000                 ld          wq,r14
+C 00000027 e7406206  AQW = $29 = $28 ADD 00000018               aqw_add     vb,sp,24
+C 00000028 6fc00305  WQ = $31 = $13 OR 00000000                 ld          wq,r13
+C 00000029 e7405206  AQW = $29 = $28 ADD 00000014               aqw_add     vb,sp,20
+C 0000002a 67c00305  WQ = $31 = $12 OR 00000000                 ld          wq,r12
+C 0000002b e7404206  AQW = $29 = $28 ADD 00000010               aqw_add     vb,sp,16
+C 0000002c 5fc00305  WQ = $31 = $11 OR 00000000                 ld          wq,r11
+C 0000002d e7403206  AQW = $29 = $28 ADD 0000000c               aqw_add     vb,sp,12
+C 0000002e 57c00305  WQ = $31 = $10 OR 00000000                 ld          wq,r10
+C 0000002f e7402206  AQW = $29 = $28 ADD 00000008               aqw_add     vb,sp,8
+C 00000030 4fc00305  WQ = $31 = $9 OR 00000000                  ld          wq,r9
+C 00000031 00000003* LINK = 00000000                            long_call   _mc_initRPC
+C 00000032 f0000308* CALL LINK OR 00000000              
+C 00000033 07400a07  AQR = $29 = $0 ADD 00000002                aqr_ld      vb,2
+C 00000034 e8400305  $1 = RQ OR 00000000                        ld          r1,rq
+C 00000035 085c0300  $1 = $1 OR 00000000 LSR 14                 lsr         r1,r1,14
+C 00000036 0ac03e85  $11 = $1 AND 0000000f                      and         r11,r1,15
+C 00000037 e7400306  AQW = $29 = $28 OR 00000000                aqw_ld      vb,sp
+C 00000038 00000023* LINK = 00000020                            long_ld     wq,.LC1
+C 00000039 f7c00b05* WQ = $31 = LINK OR 00000002        
+C 0000003a e7401206  AQW = $29 = $28 ADD 00000004               aqw_add     vb,sp,4
+C 0000003b 00000003* LINK = 00000000                            long_ld     wq,_mc_main
+C 0000003c f7c00305* WQ = $31 = LINK OR 00000000        
+C 0000003d 00000003* LINK = 00000000                            long_ld     r14,_printf
+C 0000003e f3800305* $14 = LINK OR 00000000             
+C 0000003f 70000308  CALL $14 OR 00000000                       call        r14
+C 00000040 00400a05  $1 = $0 ADD 00000002                       ld          r1,2
+C 00000041 067e0601  $25 = $0 ADD 00000001 LSL 31               lsl         t2,1,31
+C 00000042 0e006585  $24 = $1 XOR $25                           xor         t1,r1,t2
+C 00000043 5e406585  $25 = $11 XOR $25                          xor         t2,r11,t2
+C 00000044 c7406445  $29 = $24 SUB $25                          sub         vb,t1,t2
+C 00000045 f801520b  JC PC ADD 00000054                         jc          .L8
+C 00000046 00000003* LINK = 00000000                            long_ld     r2,_saveArea
+C 00000047 f0800305* $2 = LINK OR 00000000              
+C 00000048 10440301  $1 = $2 OR 00000000 LSL 2                  lsl         r1,r2,2
+C 00000049 0a4ffe05  $9 = $1 ADD 000003ff                       add         r9,r1,1023
+C 0000004a 02800a05  $10 = $0 ADD 00000002                      ld          r10,2
+C 0000004b 00000003* LINK = 00000000                            long_ld     r13,_malloc
+C 0000004c f3400305* $13 = LINK OR 00000000             
+C 0000004d 00000003* LINK = 00000000                            long_ld     r12,_cache_flush
+C 0000004e f3000305* $12 = LINK OR 00000000             
+C 0000004f f8002e0c  J PC ADD 0000000b                          j           .L11
+C 00000050                                              .L18:
+C 00000050 00c000c5  $3 = $0 ANDN $0                            ld          r3,0
+C 00000051 0101fe05  $4 = $0 ADD 0000007f                       ld          r4,127
+C 00000052 60000308  CALL $12 OR 00000000                       call        r12
+C 00000053 52800605  $10 = $10 ADD 00000001                     add         r10,r10,1
+C 00000054 4a480205  $9 = $9 ADD 00000200                       add         r9,r9,512
+C 00000055 067e0601  $25 = $0 ADD 00000001 LSL 31               lsl         t2,1,31
+C 00000056 56006585  $24 = $10 XOR $25                          xor         t1,r10,t2
+C 00000057 5e406585  $25 = $11 XOR $25                          xor         t2,r11,t2
+C 00000058 c7406445  $29 = $24 SUB $25                          sub         vb,t1,t2
+C 00000059 f800760b  JC PC ADD 0000001d                         jc          .L17
+C 0000005a                                              .L11:
+C 0000005a 000186a3  LINK = 000186a0                            long_ld     r3,100000
+C 0000005b f0c00305  $3 = LINK OR 00000000              
+C 0000005c 68000308  CALL $13 OR 00000000                       call        r13
+C 0000005d 4f463e46  AQW = $29 = $9 SUB 0000018f                aqw_sub     vb,r9,399
+C 0000005e 000186a3  LINK = 000186a0                            lli         100000
+C 0000005f f7c00405  WQ = $31 = LINK ADD $1                     add         wq,link,r1
+C 00000060 4f461e46  AQW = $29 = $9 SUB 00000187                aqw_sub     vb,r9,391
+C 00000061 00000003* LINK = 00000000                            long_ld     wq,_mc_exit
+C 00000062 f7c00305* WQ = $31 = LINK OR 00000000        
+C 00000063 4f460e46  AQW = $29 = $9 SUB 00000183                aqw_sub     vb,r9,387
+C 00000064 00000003* LINK = 00000000                            long_ld     wq,_mc_main
+C 00000065 f7c00305* WQ = $31 = LINK OR 00000000        
+C 00000066 0047fb45  $1 = $0 ORN 000001fe                       orn         r1,zero,510
+C 00000067 48ca0400  $3 = $9 ADD $1 LSR 5                       add_lsr     r3,r9,r1,5
+C 00000068 484a0300  $1 = $9 OR 00000000 LSR 5                  lsr         r1,r9,5
+C 00000069 09000c45  $4 = $1 SUB $3                             sub         r4,r1,r3
+C 0000006a 0081fa05  $2 = $0 ADD 0000007e                       ld          r2,126
+C 0000006b 17401045  $29 = $2 SUB $4                            sub         vb,r2,r4
+C 0000006c f800724f  JNC PC SUB 0000001c                        jnc         .L18
+C 0000006d 18c1fe85  $3 = $3 AND 0000007f                       and         r3,r3,127
+C 0000006e 60000308  CALL $12 OR 00000000                       call        r12
+C 0000006f 52800605  $10 = $10 ADD 00000001                     add         r10,r10,1
+C 00000070 4a480205  $9 = $9 ADD 00000200                       add         r9,r9,512
+C 00000071 067e0601  $25 = $0 ADD 00000001 LSL 31               lsl         t2,1,31
+C 00000072 56006585  $24 = $10 XOR $25                          xor         t1,r10,t2
+C 00000073 5e406585  $25 = $11 XOR $25                          xor         t2,r11,t2
+C 00000074 c7406445  $29 = $24 SUB $25                          sub         vb,t1,t2
+C 00000075 f8006e4f  JNC PC SUB 0000001b                        jnc         .L11
+C 00000076                                              .L17:
+C 00000076 00000003* LINK = 00000000                            long_call   _mc_init
+C 00000077 f0000308* CALL LINK OR 00000000              
+C 00000078 e7400306  AQW = $29 = $28 OR 00000000                aqw_ld      vb,sp
+C 00000079 00000033* LINK = 00000030                            long_ld     wq,.LC2
+C 0000007a f7c01f05* WQ = $31 = LINK OR 00000007        
+C 0000007b 70000308  CALL $14 OR 00000000                       call        r14
+C 0000007c 02400a05  $9 = $0 ADD 00000002                       ld          r9,2
+C 0000007d 00000003* LINK = 00000000                            long_ld     r10,_message_send
+C 0000007e f2800305* $10 = LINK OR 00000000             
+C 0000007f                                              .L12:
+C 0000007f 48c00305  $3 = $9 OR 00000000                        ld          r3,r9
+C 00000080 010000c5  $4 = $0 ANDN $0                            ld          r4,0
+C 00000081 21400305  $5 = $4 OR 00000000                        ld          r5,r4
+C 00000082 21800305  $6 = $4 OR 00000000                        ld          r6,r4
+C 00000083 50000308  CALL $10 OR 00000000                       call        r10
+C 00000084 4a400605  $9 = $9 ADD 00000001                       add         r9,r9,1
+C 00000085 067e0601  $25 = $0 ADD 00000001 LSL 31               lsl         t2,1,31
+C 00000086 4e006585  $24 = $9 XOR $25                           xor         t1,r9,t2
+C 00000087 5e406585  $25 = $11 XOR $25                          xor         t2,r11,t2
+C 00000088 c7406445  $29 = $24 SUB $25                          sub         vb,t1,t2
+C 00000089 f8002a4f  JNC PC SUB 0000000a                        jnc         .L12
+C 0000008a                                              .L14:
+C 0000008a e7402207  AQR = $29 = $28 ADD 00000008               aqr_add     vb,sp,8
+C 0000008b ea400305  $9 = RQ OR 00000000                        ld          r9,rq
+C 0000008c e7403207  AQR = $29 = $28 ADD 0000000c               aqr_add     vb,sp,12
+C 0000008d ea800305  $10 = RQ OR 00000000                       ld          r10,rq
+C 0000008e e7404207  AQR = $29 = $28 ADD 00000010               aqr_add     vb,sp,16
+C 0000008f eac00305  $11 = RQ OR 00000000                       ld          r11,rq
+C 00000090 e7405207  AQR = $29 = $28 ADD 00000014               aqr_add     vb,sp,20
+C 00000091 eb000305  $12 = RQ OR 00000000                       ld          r12,rq
+C 00000092 e7406207  AQR = $29 = $28 ADD 00000018               aqr_add     vb,sp,24
+C 00000093 eb400305  $13 = RQ OR 00000000                       ld          r13,rq
+C 00000094 e7407207  AQR = $29 = $28 ADD 0000001c               aqr_add     vb,sp,28
+C 00000095 eb800305  $14 = RQ OR 00000000                       ld          r14,rq
+C 00000096 e7008207  AQR = $28 = $28 ADD 00000020               aqr_add     sp,sp,32
+C 00000097 e7001205  $28 = $28 ADD 00000004                     add         sp,sp,4
+C 00000098 e800030c  J RQ OR 00000000                           j           rq
+C 00000099                                              .L8:
+C 00000099 00000003* LINK = 00000000                            long_call   _mc_init
+C 0000009a f0000308* CALL LINK OR 00000000              
+C 0000009b e7400306  AQW = $29 = $28 OR 00000000                aqw_ld      vb,sp
+C 0000009c 00000033* LINK = 00000030                            long_ld     wq,.LC2
+C 0000009d f7c01f05* WQ = $31 = LINK OR 00000007        
+C 0000009e 70000308  CALL $14 OR 00000000                       call        r14
+C 0000009f f800564c  J PC SUB 00000015                          j           .L14
+                                                                .size   _forkee, .-_forkee
+                                                                .ident  "GCC: (GNU) 4.3.3"
+
+assume   $0 = 00000000
+
+                        .text + 000000a0     .
+                        .text + 0000005a     .L11
+                        .text + 0000007f     .L12
+                        .text + 0000008a     .L14
+                        .text + 00000076     .L17
+                        .text + 00000050     .L18
+                        .text + 00000002     .L2
+                        .text + 00000099     .L8
+                        .data + 00000000     .LC0
+                        .data + 00000022     .LC1
+                        .data + 00000037     .LC2
+                             <undefined>  E  _cache_flush
+                        .text + 00000022     _forkee
+                        .text + 00000003  G  _main
+                             <undefined>  E  _malloc
+                        .text + 00000000     _mc_exit
+                             <undefined>  E  _mc_init
+                             <undefined>  E  _mc_initRPC
+                             <undefined>  E  _mc_main
+                             <undefined>  E  _message_send
+                             <undefined>  E  _printf
+                             <undefined>  E  _saveArea
+                             <undefined>  E  _thread_exit
+                             <undefined>  E  _thread_fork
+                                00000000     code.rota
+                                00000001     code.step
+                                00000002     data.rota
+                                00000004     data.step
+                                     $23     fp
+                                    link     link
+                                     $27     p1
+                                      pc     pc
+                                      $1     r1
+                                     $10     r10
+                                     $11     r11
+                                     $12     r12
+                                     $13     r13
+                                     $14     r14
+                                     $15     r15
+                                     $16     r16
+                                     $17     r17
+                                     $18     r18
+                                     $19     r19
+                                      $2     r2
+                                     $20     r20
+                                     $21     r21
+                                     $22     r22
+                                      $3     r3
+                                      $4     r4
+                                      $5     r5
+                                      $6     r6
+                                      $7     r7
+                                      $8     r8
+                                      $9     r9
+                                      rq     rq
+                                     $28     sp
+                                     $24     t1
+                                     $25     t2
+                                     $26     t3
+                                     $29     vb
+                                      $0     void
+                                      wq     wq
+                                      $0     zero

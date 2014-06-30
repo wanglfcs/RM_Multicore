@@ -1,0 +1,141 @@
+<object file="xfer.o" coderota="0" datarota="2">
+  <segment name=".text" kind="code" rota="00000000" ibase="00000000" isize="00000053" alignbic="00000000">
+    <w v="f6000305" />
+    <w v="e7001246" />
+    <w v="4fc00305" />
+    <w v="e7001246" />
+    <w v="57c00305" />
+    <w v="e7001246" />
+    <w v="5fc00305" />
+    <w v="e7001246" />
+    <w v="67c00305" />
+    <w v="e7001246" />
+    <w v="6fc00305" />
+    <w v="e7001246" />
+    <w v="77c00305" />
+    <w v="e7001246" />
+    <w v="7fc00305" />
+    <w v="e7001246" />
+    <w v="87c00305" />
+    <w v="e7001246" />
+    <w v="8fc00305" />
+    <w v="e7001246" />
+    <w v="97c00305" />
+    <w v="e7001246" />
+    <w v="9fc00305" />
+    <w v="e7001246" />
+    <w v="a7c00305" />
+    <w v="e7001246" />
+    <w v="afc00305" />
+    <w v="e7001246" />
+    <w v="b7c00305" />
+    <w v="e7001246" />
+    <w v="bfc00305" />
+    <w v="18c00246" />
+    <w v="e7c00305" />
+    <w v="c000030c" />
+    <w v="1f000305" />
+    <w v="e7000207" />
+    <w v="edc00305" />
+    <w v="e7001207" />
+    <w v="ed800305" />
+    <w v="e7001207" />
+    <w v="ed400305" />
+    <w v="e7001207" />
+    <w v="ed000305" />
+    <w v="e7001207" />
+    <w v="ecc00305" />
+    <w v="e7001207" />
+    <w v="ec800305" />
+    <w v="e7001207" />
+    <w v="ec400305" />
+    <w v="e7001207" />
+    <w v="ec000305" />
+    <w v="e7001207" />
+    <w v="ebc00305" />
+    <w v="e7001207" />
+    <w v="eb800305" />
+    <w v="e7001207" />
+    <w v="eb400305" />
+    <w v="e7001207" />
+    <w v="eb000305" />
+    <w v="e7001207" />
+    <w v="eac00305" />
+    <w v="e7001207" />
+    <w v="ea800305" />
+    <w v="e7001207" />
+    <w v="ea400305" />
+    <w v="e7001205" />
+    <w v="e7000207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="f8011e48" />
+    <w v="27000305" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="f8013e48" />
+    <w v="20c00305" />
+    <w v="00000003" />
+    <w v="f000030c" />
+    <ep i="00000049">
+      <bin op="bic">
+        <refsym name="_k_threadBase" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000004a">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_k_threadBase" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000004b">
+      <bin op="bic">
+        <refsym name="_abort" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000004c">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_abort" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000051">
+      <bin op="bic">
+        <refseg name=".text" off="00000022" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000052">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000022" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+  </segment>
+  <segment name=".data" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <segment name=".bss" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <local name="." seg=".text" off="00000053" />
+  <extrn name="_abort" />
+  <globl name="_k_resume" seg=".text" off="00000022" />
+  <globl name="_k_startThread" seg=".text" off="00000045" />
+  <extrn name="_k_threadBase" />
+  <globl name="_k_xfer" seg=".text" off="0000004d" />
+  <local name="saveSP" seg=".text" off="00000000" />
+</object>

@@ -1,0 +1,285 @@
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // intercore.as                                                           //
+                                                        //                                                                        //
+                                                        // Raw inter-core hardware: messages, cache management, semaphores.       //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        
+                                                        // Imports:
+                                                                .include "stdas.as"
+                                                        // ------------------------------------------------------------
+                                                        // Standard as definitions
+                                                        
+$0                                                      zero = $0    // fixed zero
+$1                                                      r1 = $1      // function return value
+$2                                                      r2 = $2      // not callee save
+$3                                                      r3 = $3      // not callee save, function argument 1
+$4                                                      r4 = $4      // not callee save, function argument 2
+$5                                                      r5 = $5      // not callee save, function argument 3
+$6                                                      r6 = $6      // not callee save, function argument 4
+$7                                                      r7 = $7      // not callee save, function argument 5
+$8                                                      r8 = $8      // not callee save, function argument 6
+$9                                                      r9 = $9      // callee save
+$10                                                     r10 = $10    // callee save
+$11                                                     r11 = $11    // callee save
+$12                                                     r12 = $12    // callee save
+$13                                                     r13 = $13    // callee save
+$14                                                     r14 = $14    // callee save
+$15                                                     r15 = $15    // callee save
+$16                                                     r16 = $16    // callee save
+$17                                                     r17 = $17    // callee save
+$18                                                     r18 = $18    // callee save
+$19                                                     r19 = $19    // callee save
+$20                                                     r20 = $20    // callee save
+$21                                                     r21 = $21    // callee save
+$22                                                     r22 = $22    // callee save
+$23                                                     fp = $23     // callee save, frame pointer
+$24                                                     t1 = $24     // not callee save, temporary 1, not avail for reg alloc
+$25                                                     t2 = $25     // not callee save, temporary 2, not avail for reg alloc
+$26                                                     t3 = $26     // not callee save, temporary 3, not avail for reg alloc
+$27                                                     p1 = $27     // not callee save, platform 1, not avail for reg alloc
+$28                                                     sp = $28     // callee save, stack pointer
+$29                                                     vb = $29     // not callee save, rw & rb only, not avail for reg alloc
+                                                        
+  00000000                                                  .assume   zero,0
+                                                        
+                                                        // ------------------------------------------------------------
+                                                        
+                                                        // Exports:
+                                                                .file "intercore.as"
+                                                                
+                                                                
+                                                                .globl  _message_send
+                                                                .globl  _message_recv
+                                                                .globl  _cache_flush
+                                                                .globl  _cache_invalidate
+                                                                .globl  _icSema_V
+                                                                .globl  _sfb_internal
+                                                                .globl  _rawWrite
+                                                        
+                                                        // Constants:
+  0000000e                                                      cacheControl = 14
+  00000012                                                      msgControl = 18
+  00000016                                                      semaControl = 22
+                                                        
+                                                        
+                                                                
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        
+                                                        //                                                                        //
+                                                        // void message_send(int dest, int type, IntercoreMessage *buf, int len)  //
+                                                        //                                                                        //
+                                                        // Send a message to core number "dest", using "len" words at "buf".      //
+                                                        //                                                                        //
+                                                        // Arguments are in r3-r6                                                 //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _message_send, @function
+C 00000000                                              _message_send:
+                                                                                                // ... first place data on wq
+C 00000000 31c00305  $7 = $6 OR 00000000                        ld      r7,r6                   // r7 (loop variable) = msg length
+C 00000001                                              x1:
+C 00000001 39c00645  $7 = $7 SUB 00000001                       sub     r7,r7,1
+C 00000002 f8001609  JM PC ADD 00000005                         jm      x2                      // bail if done copying
+C 00000003 29400307  AQR = $5 = $5 OR 00000000                  aqr_ld  r5,r5
+C 00000004 efc00305  WQ = $31 = RQ OR 00000000                  ld      wq,rq                   // copy word onto wq
+C 00000005 29401205  $5 = $5 ADD 00000004                       add     r5,r5,4                 // next word address
+C 00000006 f800164c  J PC SUB 00000005                          j       x1
+C 00000007                                              x2:                                     // ... now assemble the address
+C 00000007 210c0301  $4 = $4 OR 00000000 LSL 6                  lsl     r4,r4,6                 // r4 = type << 6
+C 00000008 21081801  $4 = $4 ADD $6 LSL 4                       add_lsl r4,r4,r6,4              // r4 = (r4 + len) << 4
+C 00000009 210a0c01  $4 = $4 ADD $3 LSL 5                       add_lsl r4,r4,r3,5              // r4 = (r4 + dest) << 5
+C 0000000a 21004a06  AQW = $4 = $4 ADD 00000012                 aqw_add r4,r4,msgControl        // initiate the write
+C 0000000b f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _message_send,.-_message_send
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // unsigned int message_recv(IntercoreMessage *buf)                       //
+                                                        //                                                                        //
+                                                        // Receive a message into "buf" and return its status, or 0.              //
+                                                        //                                                                        //
+                                                        // Argument is in r3, result goes in r1                                   //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _message_recv, @function
+C 0000000c                                              _message_recv:
+C 0000000c 07404a07  AQR = $29 = $0 ADD 00000012                aqr_ld  vb,msgControl           // read the device
+C 0000000d e8400305  $1 = RQ OR 00000000                        ld      r1,rq                   // r1 = status
+C 0000000e f000030a  JZ LINK OR 00000000                        jz      link                    // if status == 0 then return 0
+C 0000000f 0900fe85  $4 = $1 AND 0000003f                       and     r4,r1,63                // r4 = msg length
+C 00000010                                              x3:                                     // r3 is current destination address
+C 00000010 21000645  $4 = $4 SUB 00000001                       sub     r4,r4,1
+C 00000011 f0000309  JM LINK OR 00000000                        jm      link                    // if done copying, return status
+C 00000012 1f400306  AQW = $29 = $3 OR 00000000                 aqw_ld  vb,r3
+C 00000013 efc00305  WQ = $31 = RQ OR 00000000                  ld      wq,rq                   // copy word onto wq
+C 00000014 18c01205  $3 = $3 ADD 00000004                       add     r3,r3,4                 // next destination word address
+C 00000015 f800164c  J PC SUB 00000005                          j       x3
+                                                                .size   _message_recv,.-_message_recv
+                                                        
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // void cache_flush(int line, int countMinus1)                            //
+                                                        //                                                                        //
+                                                        // Flush a cache line                                                     //
+                                                        //                                                                        //
+                                                        // Arguments are in r3-r4                                                 //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _cache_flush, @function
+C 00000016                                              _cache_flush:
+C 00000016 210e0301  $4 = $4 OR 00000000 LSL 7                  lsl     r4,r4,7
+C 00000017 210a0c01  $4 = $4 ADD $3 LSL 5                       add_lsl r4,r4,r3,5
+C 00000018 21003a06  AQW = $4 = $4 ADD 0000000e                 aqw_add r4,r4,cacheControl
+C 00000019 f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _cache_flush,.-_cache_flush
+                                                        
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // void cache_invalidate(int line, int countMinus1)                       //
+                                                        //                                                                        //
+                                                        // Invalidate a cache line, flushing it first                             //
+                                                        //                                                                        //
+                                                        // Arguments are in r3-r4                                                 //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _cache_invalidate, @function
+C 0000001a                                              _cache_invalidate:
+C 0000001a 210e0301  $4 = $4 OR 00000000 LSL 7                  lsl     r4,r4,7
+C 0000001b 210a0c01  $4 = $4 ADD $3 LSL 5                       add_lsl r4,r4,r3,5
+C 0000001c 21003a06  AQW = $4 = $4 ADD 0000000e                 aqw_add r4,r4,cacheControl      // flush
+C 0000001d 01660601  $5 = $0 ADD 00000001 LSL 19                lsl     r5,1,19                 // "invalidate", ends up at AQ[17]
+C 0000001e 21401406  AQW = $5 = $4 ADD $5                       aqw_add r5,r4,r5                // invalidate
+C 0000001f f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _cache_invalidate,.-_cache_invalidate
+                                                        
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // void icSema_V(int n)                                                   //
+                                                        //                                                                        //
+                                                        // Perform V on an inter-core semaphore                                   //
+                                                        //                                                                        //
+                                                        // Argument is in r3                                                      //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _icSema_V, @function
+C 00000020                                              _icSema_V:
+C 00000020 18ca0301  $3 = $3 OR 00000000 LSL 5                  lsl     r3,r3,5
+C 00000021 18c05a06  AQW = $3 = $3 ADD 00000016                 aqw_add r3,r3,semaControl
+C 00000022 f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _icSema_V,.-_icSema_V
+                                                        
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // void sfb_internal(int core, void *frame)                               //
+                                                        //                                                                        //
+                                                        // Tell the display controller its frame buffer                           //
+                                                        //                                                                        //
+                                                        // Arguments are in r3-r4, result goes in r1                              //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _sfb_internal, @function
+C 00000023                                              _sfb_internal:
+C 00000023 27ca0300  WQ = $31 = $4 OR 00000000 LSR 5            lsr     wq,r4,5                 // frame cache line into message
+C 00000024 01004205  $4 = $0 ADD 00000010                       ld      r4,16                   // r4 = len << 4 (type is 0)
+C 00000025 210a0c01  $4 = $4 ADD $3 LSL 5                       add_lsl r4,r4,r3,5              // r4 = (r4 + dest) << 5
+C 00000026 21004a06  AQW = $4 = $4 ADD 00000012                 aqw_add r4,r4,msgControl        // initiate the message send
+C 00000027 e8400305  $1 = RQ OR 00000000                        ld      r1,rq                   // result
+C 00000028 f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _sfb_internal,.-_sfb_internal
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // void rawWrite(unsigned int *addr);                                     //
+                                                        //                                                                        //
+                                                        // Place "addr" on WQ, with no matching data                              //
+                                                        //                                                                        //
+                                                        // Argument is in r3                                                      //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _rawWrite, @function
+C 00000029                                              _rawWrite:
+C 00000029 18c00306  AQW = $3 = $3 OR 00000000                  aqw_ld  r3,r3
+C 0000002a f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _rawWrite,.-_rawWrite
+
+assume   $0 = 00000000
+
+                        .text + 0000002b     .
+                        .text + 00000016  G  _cache_flush
+                        .text + 0000001a  G  _cache_invalidate
+                        .text + 00000020  G  _icSema_V
+                        .text + 0000000c  G  _message_recv
+                        .text + 00000000  G  _message_send
+                        .text + 00000029  G  _rawWrite
+                        .text + 00000023  G  _sfb_internal
+                                0000000e     cacheControl
+                                00000000     code.rota
+                                00000001     code.step
+                                00000002     data.rota
+                                00000004     data.step
+                                     $23     fp
+                                    link     link
+                                00000012     msgControl
+                                     $27     p1
+                                      pc     pc
+                                      $1     r1
+                                     $10     r10
+                                     $11     r11
+                                     $12     r12
+                                     $13     r13
+                                     $14     r14
+                                     $15     r15
+                                     $16     r16
+                                     $17     r17
+                                     $18     r18
+                                     $19     r19
+                                      $2     r2
+                                     $20     r20
+                                     $21     r21
+                                     $22     r22
+                                      $3     r3
+                                      $4     r4
+                                      $5     r5
+                                      $6     r6
+                                      $7     r7
+                                      $8     r8
+                                      $9     r9
+                                      rq     rq
+                                00000016     semaControl
+                                     $28     sp
+                                     $24     t1
+                                     $25     t2
+                                     $26     t3
+                                     $29     vb
+                                      wq     wq
+                        .text + 00000001     x1
+                        .text + 00000007     x2
+                        .text + 00000010     x3
+                                      $0     zero

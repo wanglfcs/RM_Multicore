@@ -1,0 +1,504 @@
+<object file="mcMain.o" coderota="0" datarota="2">
+  <segment name=".text" kind="code" rota="00000000" ibase="00000000" isize="000000a0" alignbic="00000000">
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="f800020c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7003245" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="07400a07" />
+    <w v="e8800305" />
+    <w v="e7400306" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="085c0300" />
+    <w v="08403e85" />
+    <w v="e7401206" />
+    <w v="0fc00645" />
+    <w v="10a40300" />
+    <w v="e7402206" />
+    <w v="17c1fe85" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="00000003" />
+    <w v="f0c00305" />
+    <w v="010000c5" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="00c000c5" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="004000c5" />
+    <w v="e7003207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7008245" />
+    <w v="e7407206" />
+    <w v="77c00305" />
+    <w v="e7406206" />
+    <w v="6fc00305" />
+    <w v="e7405206" />
+    <w v="67c00305" />
+    <w v="e7404206" />
+    <w v="5fc00305" />
+    <w v="e7403206" />
+    <w v="57c00305" />
+    <w v="e7402206" />
+    <w v="4fc00305" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="085c0300" />
+    <w v="0ac03e85" />
+    <w v="e7400306" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="e7401206" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="00000003" />
+    <w v="f3800305" />
+    <w v="70000308" />
+    <w v="00400a05" />
+    <w v="067e0601" />
+    <w v="0e006585" />
+    <w v="5e406585" />
+    <w v="c7406445" />
+    <w v="f801520b" />
+    <w v="00000003" />
+    <w v="f0800305" />
+    <w v="10440301" />
+    <w v="0a4ffe05" />
+    <w v="02800a05" />
+    <w v="00000003" />
+    <w v="f3400305" />
+    <w v="00000003" />
+    <w v="f3000305" />
+    <w v="f8002e0c" />
+    <w v="00c000c5" />
+    <w v="0101fe05" />
+    <w v="60000308" />
+    <w v="52800605" />
+    <w v="4a480205" />
+    <w v="067e0601" />
+    <w v="56006585" />
+    <w v="5e406585" />
+    <w v="c7406445" />
+    <w v="f800760b" />
+    <w v="000186a3" />
+    <w v="f0c00305" />
+    <w v="68000308" />
+    <w v="4f463e46" />
+    <w v="000186a3" />
+    <w v="f7c00405" />
+    <w v="4f461e46" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="4f460e46" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="0047fb45" />
+    <w v="48ca0400" />
+    <w v="484a0300" />
+    <w v="09000c45" />
+    <w v="0081fa05" />
+    <w v="17401045" />
+    <w v="f800724f" />
+    <w v="18c1fe85" />
+    <w v="60000308" />
+    <w v="52800605" />
+    <w v="4a480205" />
+    <w v="067e0601" />
+    <w v="56006585" />
+    <w v="5e406585" />
+    <w v="c7406445" />
+    <w v="f8006e4f" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7400306" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="70000308" />
+    <w v="02400a05" />
+    <w v="00000003" />
+    <w v="f2800305" />
+    <w v="48c00305" />
+    <w v="010000c5" />
+    <w v="21400305" />
+    <w v="21800305" />
+    <w v="50000308" />
+    <w v="4a400605" />
+    <w v="067e0601" />
+    <w v="4e006585" />
+    <w v="5e406585" />
+    <w v="c7406445" />
+    <w v="f8002a4f" />
+    <w v="e7402207" />
+    <w v="ea400305" />
+    <w v="e7403207" />
+    <w v="ea800305" />
+    <w v="e7404207" />
+    <w v="eac00305" />
+    <w v="e7405207" />
+    <w v="eb000305" />
+    <w v="e7406207" />
+    <w v="eb400305" />
+    <w v="e7407207" />
+    <w v="eb800305" />
+    <w v="e7008207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7400306" />
+    <w v="00000003" />
+    <w v="f7c00305" />
+    <w v="70000308" />
+    <w v="f800564c" />
+    <ep i="0000000b">
+      <bin op="bic">
+        <refseg name=".data" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000000c">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".data" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000014">
+      <bin op="bic">
+        <refsym name="_printf" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000015">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_printf" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000016">
+      <bin op="bic">
+        <refseg name=".text" off="00000022" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000017">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000022" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000019">
+      <bin op="bic">
+        <refsym name="_thread_fork" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000001a">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_thread_fork" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000001c">
+      <bin op="bic">
+        <refsym name="_thread_exit" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000001d">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_thread_exit" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000031">
+      <bin op="bic">
+        <refsym name="_mc_initRPC" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000032">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_mc_initRPC" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000038">
+      <bin op="bic">
+        <refseg name=".data" off="00000022" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000039">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".data" off="00000022" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000003b">
+      <bin op="bic">
+        <refsym name="_mc_main" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000003c">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_mc_main" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000003d">
+      <bin op="bic">
+        <refsym name="_printf" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000003e">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_printf" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000046">
+      <bin op="bic">
+        <refsym name="_saveArea" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000047">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_saveArea" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000004b">
+      <bin op="bic">
+        <refsym name="_malloc" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000004c">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_malloc" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000004d">
+      <bin op="bic">
+        <refsym name="_cache_flush" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000004e">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_cache_flush" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000061">
+      <bin op="bic">
+        <refseg name=".text" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000062">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000064">
+      <bin op="bic">
+        <refsym name="_mc_main" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000065">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_mc_main" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000076">
+      <bin op="bic">
+        <refsym name="_mc_init" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000077">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_mc_init" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000079">
+      <bin op="bic">
+        <refseg name=".data" off="00000037" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000007a">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".data" off="00000037" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000007d">
+      <bin op="bic">
+        <refsym name="_message_send" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000007e">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_message_send" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000099">
+      <bin op="bic">
+        <refsym name="_mc_init" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000009a">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_mc_init" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000009c">
+      <bin op="bic">
+        <refseg name=".data" off="00000037" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000009d">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".data" off="00000037" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+  </segment>
+  <segment name=".data" kind="data" rota="00000002" ibase="00000000" isize="0000001c" alignbic="00000000">
+    <w v="2064250a" />
+    <w v="65726f63" />
+    <w v="63202c73" />
+    <w v="6b636f6c" />
+    <w v="65707320" />
+    <w v="69206465" />
+    <w v="64252073" />
+    <w v="7a484d20" />
+    <w v="6461000a" />
+    <w v="6f207264" />
+    <w v="636d2066" />
+    <w v="69616d5f" />
+    <w v="25203a6e" />
+    <w v="61000a78" />
+    <w v="72657466" />
+    <w v="5f636d20" />
+    <w v="74696e69" />
+    <w v="202c2928" />
+    <w v="6e696f67" />
+    <w v="6f742067" />
+    <w v="6e657320" />
+    <w v="656d2064" />
+    <w v="67617373" />
+    <w v="74207365" />
+    <w v="6c73206f" />
+    <w v="20657661" />
+    <w v="65726f63" />
+    <w v="00000a73" />
+  </segment>
+  <segment name=".bss" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <local name="." seg=".text" off="000000a0" />
+  <local name=".L11" seg=".text" off="0000005a" />
+  <local name=".L12" seg=".text" off="0000007f" />
+  <local name=".L14" seg=".text" off="0000008a" />
+  <local name=".L17" seg=".text" off="00000076" />
+  <local name=".L18" seg=".text" off="00000050" />
+  <local name=".L2" seg=".text" off="00000002" />
+  <local name=".L8" seg=".text" off="00000099" />
+  <local name=".LC0" seg=".data" off="00000000" />
+  <local name=".LC1" seg=".data" off="00000022" />
+  <local name=".LC2" seg=".data" off="00000037" />
+  <extrn name="_cache_flush" />
+  <local name="_forkee" seg=".text" off="00000022" />
+  <globl name="_main" seg=".text" off="00000003" />
+  <extrn name="_malloc" />
+  <local name="_mc_exit" seg=".text" off="00000000" />
+  <extrn name="_mc_init" />
+  <extrn name="_mc_initRPC" />
+  <extrn name="_mc_main" />
+  <extrn name="_message_send" />
+  <extrn name="_printf" />
+  <extrn name="_saveArea" />
+  <extrn name="_thread_exit" />
+  <extrn name="_thread_fork" />
+</object>

@@ -1,0 +1,277 @@
+iMPACT Version: 12.3
+
+iMPACT log file Started on Mon May 12 15:52:47 2014
+
+Welcome to iMPACT
+iMPACT Version: 12.3
+// *** BATCH CMD : setMode -bs
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+AutoDetecting cable. Please wait.
+PROGRESS_START - Starting Operation.
+ OS platform = i686.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /opt/Xilinx/12.3/ISE_DS/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+ Kernel release = 2.6.32-57-generic.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1303.
+File version of /opt/Xilinx/12.3/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+Type = 0x0004.
+ ESN device is not available for this cable.
+Attempting to identify devices in the boundary-scan chain configuration...
+INFO:iMPACT - Current time: Mon May 12 15:52:52 2014
+// *** BATCH CMD : Identify -inferir 
+PROGRESS_START - Starting Operation.
+Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc5vlx110t, Version : 10
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/12.3/ISE_DS/ISE/virtex5/data/xc5vlx110t.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx110t successfully.
+----------------------------------------------------------------------
+'1': : Manufacturer's ID = Xilinx xccace, Version : 0
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/12.3/ISE_DS/ISE/acecf/data/xccace.bsd...
+INFO:iMPACT:501 - '1': Added Device xccace successfully.
+----------------------------------------------------------------------
+'2': : Manufacturer's ID = Xilinx xc95144xl, Version : 5
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/12.3/ISE_DS/ISE/xc9500xl/data/xc95144xl.bsd...
+INFO:iMPACT:501 - '1': Added Device xc95144xl successfully.
+----------------------------------------------------------------------
+'3': : Manufacturer's ID = Xilinx xcf32p, Version : 15
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/12.3/ISE_DS/ISE/xcfp/data/xcf32p.bsd...
+INFO:iMPACT:501 - '1': Added Device xcf32p successfully.
+----------------------------------------------------------------------
+'4': : Manufacturer's ID = Xilinx xcf32p, Version : 13
+INFO:iMPACT:501 - '1': Added Device xcf32p successfully.
+----------------------------------------------------------------------
+done.
+PROGRESS_END - End Operation.
+Elapsed time =      0 sec.
+// *** BATCH CMD : identifyMPM 
+// *** BATCH CMD : assignFile -p 5 -file"/home/beehive/ISE/XUPv5RingV5LX110/risc5p.bit"
+'5': Loading file '/home/beehive/ISE/XUPv5RingV5LX110/risc5p.bit' ...
+done.
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+UserID read from the bitstream file = 0xFFFFFFFF.
+----------------------------------------------------------------------
+INFO:iMPACT:501 - '5': Added Device xc5vlx110t successfully.
+----------------------------------------------------------------------
+INFO:iMPACT - Current time: Mon May 12 15:53:06 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+5: Device Temperature: Current Reading:   49.88 C, Min. Reading:   42.50 C, Max.Reading:   50.38 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.990 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+PROGRESS_START - Starting Operation.
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+INFO:iMPACT - Current time: Mon May 12 15:53:51 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   49.88 C, Min. Reading:   45.45 C, Max.Reading:   50.38 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.990 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+INFO:iMPACT - Current time: Mon May 12 15:54:26 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   49.39 C, Min. Reading:   44.96 C, Max.Reading:   49.88 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.993 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+INFO:iMPACT - Current time: Mon May 12 15:58:33 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+5: Device Temperature: Current Reading:   51.36 C, Min. Reading:   44.47 C, Max.Reading:   51.36 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.990 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.496 V
+PROGRESS_START - Starting Operation.
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+INFO:iMPACT - Current time: Mon May 12 15:58:49 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   49.39 C, Min. Reading:   46.44 C, Max.Reading:   51.36 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.993 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+INFO:iMPACT - Current time: Mon May 12 16:00:05 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   50.38 C, Min. Reading:   44.96 C, Max.Reading:   50.87 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.993 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.484 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      8 sec.
+INFO:iMPACT - Current time: Mon May 12 16:00:21 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+5: Device Temperature: Current Reading:   48.90 C, Min. Reading:   45.45 C, Max.Reading:   50.38 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.993 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+PROGRESS_START - Starting Operation.
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+INFO:iMPACT - Current time: Mon May 12 16:01:54 2014
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+5: Device Temperature: Current Reading:   50.38 C, Min. Reading:   44.47 C, Max.Reading:   50.87 C
+5: VCCINT Supply: Current Reading:   0.993 V, Min. Reading:   0.990 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.493 V
+PROGRESS_START - Starting Operation.
+'5': Programming device...
+ Match_cycle = 2.
+ LCK_cycle = 6.
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1011 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = 2.
+ LCK_cycle = 6.
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      9 sec.
+// *** BATCH CMD : setMode -bs
+INFO:iMPACT - Launching WebTalk, please refer to the webtalk log at   /home/beehive/webtalk.log for details.
+INFO:iMPACT - Running wbtc successfully.
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setMode -ss
+// *** BATCH CMD : setMode -sm
+// *** BATCH CMD : setMode -hw140
+// *** BATCH CMD : setMode -spi
+// *** BATCH CMD : setMode -acecf
+// *** BATCH CMD : setMode -acempm
+// *** BATCH CMD : setMode -pff

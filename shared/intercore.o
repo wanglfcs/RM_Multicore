@@ -1,0 +1,60 @@
+<object file="intercore.o" coderota="0" datarota="2">
+  <segment name=".text" kind="code" rota="00000000" ibase="00000000" isize="0000002b" alignbic="00000000">
+    <w v="31c00305" />
+    <w v="39c00645" />
+    <w v="f8001609" />
+    <w v="29400307" />
+    <w v="efc00305" />
+    <w v="29401205" />
+    <w v="f800164c" />
+    <w v="210c0301" />
+    <w v="21081801" />
+    <w v="210a0c01" />
+    <w v="21004a06" />
+    <w v="f000030c" />
+    <w v="07404a07" />
+    <w v="e8400305" />
+    <w v="f000030a" />
+    <w v="0900fe85" />
+    <w v="21000645" />
+    <w v="f0000309" />
+    <w v="1f400306" />
+    <w v="efc00305" />
+    <w v="18c01205" />
+    <w v="f800164c" />
+    <w v="210e0301" />
+    <w v="210a0c01" />
+    <w v="21003a06" />
+    <w v="f000030c" />
+    <w v="210e0301" />
+    <w v="210a0c01" />
+    <w v="21003a06" />
+    <w v="01660601" />
+    <w v="21401406" />
+    <w v="f000030c" />
+    <w v="18ca0301" />
+    <w v="18c05a06" />
+    <w v="f000030c" />
+    <w v="27ca0300" />
+    <w v="01004205" />
+    <w v="210a0c01" />
+    <w v="21004a06" />
+    <w v="e8400305" />
+    <w v="f000030c" />
+    <w v="18c00306" />
+    <w v="f000030c" />
+  </segment>
+  <segment name=".data" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <segment name=".bss" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <local name="." seg=".text" off="0000002b" />
+  <globl name="_cache_flush" seg=".text" off="00000016" />
+  <globl name="_cache_invalidate" seg=".text" off="0000001a" />
+  <globl name="_icSema_V" seg=".text" off="00000020" />
+  <globl name="_message_recv" seg=".text" off="0000000c" />
+  <globl name="_message_send" seg=".text" off="00000000" />
+  <globl name="_rawWrite" seg=".text" off="00000029" />
+  <globl name="_sfb_internal" seg=".text" off="00000023" />
+  <local name="x1" seg=".text" off="00000001" />
+  <local name="x2" seg=".text" off="00000007" />
+  <local name="x3" seg=".text" off="00000010" />
+</object>

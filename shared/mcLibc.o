@@ -1,0 +1,974 @@
+<object file="mcLibc.o" coderota="0" datarota="2">
+  <segment name=".text" kind="code" rota="00000000" ibase="00000000" isize="000001b0" alignbic="00000000">
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="27400245" />
+    <w v="f8002e0a" />
+    <w v="188a0300" />
+    <w v="20400645" />
+    <w v="184a0400" />
+    <w v="09000845" />
+    <w v="0041fa05" />
+    <w v="0f401045" />
+    <w v="f8001e0f" />
+    <w v="10c1fe85" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7000207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="00c000c5" />
+    <w v="0101fe05" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7000207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08500300" />
+    <w v="0840f285" />
+    <w v="00000003" />
+    <w v="f7400307" />
+    <w v="e8800305" />
+    <w v="17400407" />
+    <w v="e8c00305" />
+    <w v="1f400306" />
+    <w v="07c00345" />
+    <w v="01001205" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7000207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7004245" />
+    <w v="e7403206" />
+    <w v="67c00305" />
+    <w v="e7402206" />
+    <w v="5fc00305" />
+    <w v="e7401206" />
+    <w v="57c00305" />
+    <w v="e7400306" />
+    <w v="4fc00305" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08500300" />
+    <w v="0840f285" />
+    <w v="00000003" />
+    <w v="f7400307" />
+    <w v="e8800305" />
+    <w v="17400407" />
+    <w v="ea400305" />
+    <w v="484a0e00" />
+    <w v="488a0300" />
+    <w v="0a800845" />
+    <w v="00000003" />
+    <w v="f3000305" />
+    <w v="12c1fe85" />
+    <w v="f800460c" />
+    <w v="00c000c5" />
+    <w v="0101fe05" />
+    <w v="60000308" />
+    <w v="4f400307" />
+    <w v="e8400305" />
+    <w v="00800345" />
+    <w v="0f400845" />
+    <w v="f800520e" />
+    <w v="07408a07" />
+    <w v="e8800305" />
+    <w v="07408a07" />
+    <w v="e8400305" />
+    <w v="08400845" />
+    <w v="00cf9e05" />
+    <w v="1f400445" />
+    <w v="f8005e0b" />
+    <w v="0041fa05" />
+    <w v="0f402845" />
+    <w v="f8004a4f" />
+    <w v="58c00305" />
+    <w v="51000305" />
+    <w v="60000308" />
+    <w v="4f400307" />
+    <w v="e8400305" />
+    <w v="00800345" />
+    <w v="0f400845" />
+    <w v="f8004a4a" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7401207" />
+    <w v="ea800305" />
+    <w v="e7402207" />
+    <w v="eac00305" />
+    <w v="e7403207" />
+    <w v="eb000305" />
+    <w v="e7004207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="07408a07" />
+    <w v="e8400305" />
+    <w v="0f400845" />
+    <w v="f8007e4b" />
+    <w v="f8006a4c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7040245" />
+    <w v="e7400306" />
+    <w v="4fc00305" />
+    <w v="1a400305" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08540300" />
+    <w v="08403e85" />
+    <w v="00800605" />
+    <w v="0f400845" />
+    <w v="f800520a" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7401206" />
+    <w v="07c00e05" />
+    <w v="e7402206" />
+    <w v="4fc00305" />
+    <w v="00c00605" />
+    <w v="19000305" />
+    <w v="e1401205" />
+    <w v="01800a05" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7040207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="18c05245" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7040207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7040245" />
+    <w v="e7400306" />
+    <w v="4fc00305" />
+    <w v="1a400305" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08540300" />
+    <w v="08403e85" />
+    <w v="00800605" />
+    <w v="0f400845" />
+    <w v="f800520a" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7401206" />
+    <w v="07c00a05" />
+    <w v="e7402206" />
+    <w v="4fc00305" />
+    <w v="00c00605" />
+    <w v="19000305" />
+    <w v="e1401205" />
+    <w v="01800a05" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7040207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="18c05205" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="08405205" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7040207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7041245" />
+    <w v="e7401206" />
+    <w v="57c00305" />
+    <w v="e7400306" />
+    <w v="4fc00305" />
+    <w v="1a800305" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08540300" />
+    <w v="08403e85" />
+    <w v="00800605" />
+    <w v="0f400845" />
+    <w v="f800760e" />
+    <w v="00402a05" />
+    <w v="1f400445" />
+    <w v="f800ba0a" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08480285" />
+    <w v="0f400245" />
+    <w v="f800260e" />
+    <w v="00000003" />
+    <w v="f2400305" />
+    <w v="48000308" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="08480285" />
+    <w v="0f400245" />
+    <w v="f800164a" />
+    <w v="5043fe85" />
+    <w v="08480305" />
+    <w v="07400a06" />
+    <w v="0fc00305" />
+    <w v="004000c5" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7401207" />
+    <w v="ea800305" />
+    <w v="e7041207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="e7402206" />
+    <w v="07c00605" />
+    <w v="e7403206" />
+    <w v="57c00305" />
+    <w v="00c00605" />
+    <w v="19000305" />
+    <w v="e1402205" />
+    <w v="01800a05" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="004000c5" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7401207" />
+    <w v="ea800305" />
+    <w v="e7041207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="00c03605" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="f800c24c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7004245" />
+    <w v="e7403206" />
+    <w v="67c00305" />
+    <w v="e7402206" />
+    <w v="5fc00305" />
+    <w v="e7401206" />
+    <w v="57c00305" />
+    <w v="e7400306" />
+    <w v="4fc00305" />
+    <w v="1a400305" />
+    <w v="00400605" />
+    <w v="27400445" />
+    <w v="f800320a" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7401207" />
+    <w v="ea800305" />
+    <w v="e7402207" />
+    <w v="eac00305" />
+    <w v="e7403207" />
+    <w v="eb000305" />
+    <w v="e7004207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <w v="2f400307" />
+    <w v="e8400305" />
+    <w v="00800a05" />
+    <w v="0f400845" />
+    <w v="f800660e" />
+    <w v="2f401207" />
+    <w v="eac00305" />
+    <w v="58c00305" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="0a800305" />
+    <w v="00000003" />
+    <w v="f3000305" />
+    <w v="0f400245" />
+    <w v="f800120a" />
+    <w v="08c00305" />
+    <w v="59000305" />
+    <w v="60000308" />
+    <w v="48440301" />
+    <w v="00000003" />
+    <w v="f7400307" />
+    <w v="e8800305" />
+    <w v="17400407" />
+    <w v="e8c00305" />
+    <w v="1f400306" />
+    <w v="57c00305" />
+    <w v="01001205" />
+    <w v="60000308" />
+    <w v="f8009e4c" />
+    <w v="00800e05" />
+    <w v="0f400845" />
+    <w v="f800520a" />
+    <w v="00800605" />
+    <w v="0f400845" />
+    <w v="f800b64e" />
+    <w v="2f401207" />
+    <w v="e8c00305" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="48440301" />
+    <w v="00000003" />
+    <w v="f7400307" />
+    <w v="e8800305" />
+    <w v="17400407" />
+    <w v="e8c00305" />
+    <w v="1f400306" />
+    <w v="07c000c5" />
+    <w v="01001205" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="f800f64c" />
+    <w v="2f401207" />
+    <w v="e8c00305" />
+    <w v="00000003" />
+    <w v="f0000308" />
+    <w v="f800424c" />
+    <w v="e7001246" />
+    <w v="f7c00305" />
+    <w v="e7008245" />
+    <w v="e7407206" />
+    <w v="87c00305" />
+    <w v="e7406206" />
+    <w v="7fc00305" />
+    <w v="e7405206" />
+    <w v="77c00305" />
+    <w v="e7404206" />
+    <w v="6fc00305" />
+    <w v="e7403206" />
+    <w v="67c00305" />
+    <w v="e7402206" />
+    <w v="5fc00305" />
+    <w v="e7401206" />
+    <w v="57c00305" />
+    <w v="e7400306" />
+    <w v="4fc00305" />
+    <w v="07400a07" />
+    <w v="e8400305" />
+    <w v="085c0300" />
+    <w v="0b003e85" />
+    <w v="63c40301" />
+    <w v="00000003" />
+    <w v="f3800305" />
+    <w v="78c00305" />
+    <w v="70000308" />
+    <w v="00000003" />
+    <w v="f7400306" />
+    <w v="0fc00305" />
+    <w v="00000003" />
+    <w v="f4000305" />
+    <w v="00000003" />
+    <w v="f0c00305" />
+    <w v="01001205" />
+    <w v="80000308" />
+    <w v="00400a05" />
+    <w v="067e0601" />
+    <w v="0e006585" />
+    <w v="66406585" />
+    <w v="c7406445" />
+    <w v="f8005e0b" />
+    <w v="0a800305" />
+    <w v="02c02205" />
+    <w v="00000003" />
+    <w v="f3400305" />
+    <w v="00000003" />
+    <w v="f7400307" />
+    <w v="ea402c05" />
+    <w v="00c01205" />
+    <w v="70000308" />
+    <w v="4f400306" />
+    <w v="0fc00305" />
+    <w v="50c00305" />
+    <w v="00000003" />
+    <w v="f1000305" />
+    <w v="68000308" />
+    <w v="52800605" />
+    <w v="5ac01205" />
+    <w v="067e0601" />
+    <w v="56006585" />
+    <w v="66406585" />
+    <w v="c7406445" />
+    <w v="f800464f" />
+    <w v="00000003" />
+    <w v="f7400307" />
+    <w v="e8c00305" />
+    <w v="79000305" />
+    <w v="80000308" />
+    <w v="e7400307" />
+    <w v="ea400305" />
+    <w v="e7401207" />
+    <w v="ea800305" />
+    <w v="e7402207" />
+    <w v="eac00305" />
+    <w v="e7403207" />
+    <w v="eb000305" />
+    <w v="e7404207" />
+    <w v="eb400305" />
+    <w v="e7405207" />
+    <w v="eb800305" />
+    <w v="e7406207" />
+    <w v="ebc00305" />
+    <w v="e7407207" />
+    <w v="ec000305" />
+    <w v="e7008207" />
+    <w v="e7001205" />
+    <w v="e800030c" />
+    <ep i="0000000c">
+      <bin op="bic">
+        <refsym name="_cache_flush" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000000d">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_cache_flush" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000013">
+      <bin op="bic">
+        <refsym name="_cache_flush" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000014">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_cache_flush" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000001e">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000001f">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000026">
+      <bin op="bic">
+        <refseg name=".text" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000027">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000003a">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000003b">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000042">
+      <bin op="bic">
+        <refsym name="_cache_invalidate" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000043">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_cache_invalidate" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000007e">
+      <bin op="bic">
+        <refseg name=".text" off="00000018" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000007f">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000018" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000088">
+      <bin op="bic">
+        <refsym name="_message_send" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000089">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_message_send" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000008a">
+      <bin op="bic">
+        <refseg name=".text" off="0000002b" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000008b">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="0000002b" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000092">
+      <bin op="bic">
+        <refsym name="_free1" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000093">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_free1" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000a6">
+      <bin op="bic">
+        <refseg name=".text" off="00000018" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000a7">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000018" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000b0">
+      <bin op="bic">
+        <refsym name="_message_send" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000b1">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_message_send" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000b2">
+      <bin op="bic">
+        <refseg name=".text" off="0000002b" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000b3">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="0000002b" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000ba">
+      <bin op="bic">
+        <refsym name="_malloc1" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000bb">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_malloc1" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000d9">
+      <bin op="bic">
+        <refsym name="_thread_yield" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000da">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_thread_yield" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000ed">
+      <bin op="bic">
+        <refseg name=".text" off="00000018" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000ee">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000018" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="000000f7">
+      <bin op="bic">
+        <refsym name="_message_send" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="000000f8">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_message_send" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000102">
+      <bin op="bic">
+        <refseg name=".text" off="000000c2" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000103">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="000000c2" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000127">
+      <bin op="bic">
+        <refseg name=".text" off="00000099" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000128">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000099" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000012a">
+      <bin op="bic">
+        <refseg name=".text" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000012b">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000132">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000133">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000144">
+      <bin op="bic">
+        <refseg name=".text" off="000000c2" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000145">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="000000c2" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000147">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000148">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000014f">
+      <bin op="bic">
+        <refseg name=".text" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000150">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000154">
+      <bin op="bic">
+        <refseg name=".text" off="00000071" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000155">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000071" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000016f">
+      <bin op="bic">
+        <refseg name=".text" off="00000099" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000170">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000099" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000173">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000174">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000176">
+      <bin op="bic">
+        <refseg name=".text" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000177">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000178">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000179">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000184">
+      <bin op="bic">
+        <refsym name="_mq_register" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000185">
+      <bin op="rol">
+        <bin op="bic">
+          <refsym name="_mq_register" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000186">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000187">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="0000018e">
+      <bin op="bic">
+        <refseg name=".text" off="00000105" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="0000018f">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name=".text" off="00000105" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+    <ep i="00000198">
+      <bin op="bic">
+        <refseg name="cacheline" />
+        <val v="0000000f" />
+      </bin>
+    </ep>
+    <ep i="00000199">
+      <bin op="rol">
+        <bin op="bic">
+          <refseg name="cacheline" />
+          <val v="fffffff0" />
+        </bin>
+        <val v="0000000a" />
+      </bin>
+    </ep>
+  </segment>
+  <segment name=".data" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <segment name=".bss" kind="data" rota="00000002" ibase="00000000" isize="00000000" alignbic="00000000" />
+  <segment name="cacheline" kind="data" rota="00000002" ibase="00000000" isize="00000001" alignbic="00000007" />
+  <local name="." seg="cacheline" off="00000004" />
+  <local name=".L12" seg=".text" off="00000061" />
+  <local name=".L13" seg=".text" off="00000050" />
+  <local name=".L19" seg=".text" off="00000056" />
+  <local name=".L20" seg=".text" off="0000006c" />
+  <local name=".L21" seg=".text" off="00000046" />
+  <local name=".L22" seg=".text" off="0000004e" />
+  <local name=".L27" seg=".text" off="00000091" />
+  <local name=".L32" seg=".text" off="000000b9" />
+  <local name=".L34" seg=".text" off="000000ed" />
+  <local name=".L35" seg=".text" off="000000d4" />
+  <local name=".L36" seg=".text" off="000000e1" />
+  <local name=".L37" seg=".text" off="000000db" />
+  <local name=".L4" seg=".text" off="0000000e" />
+  <local name=".L41" seg=".text" off="00000101" />
+  <local name=".L46" seg=".text" off="00000152" />
+  <local name=".L47" seg=".text" off="00000131" />
+  <local name=".L48" seg=".text" off="00000114" />
+  <local name=".L50" seg=".text" off="00000146" />
+  <local name=".L51" seg=".text" off="0000011f" />
+  <local name=".L52" seg=".text" off="0000013c" />
+  <local name=".L54" seg=".text" off="00000198" />
+  <local name=".L55" seg=".text" off="00000186" />
+  <local name=".L6" seg=".text" off="00000011" />
+  <extrn name="_cache_flush" />
+  <local name="_cache_flushMem" seg=".text" off="00000000" />
+  <extrn name="_cache_invalidate" />
+  <local name="_clearResponse" seg=".text" off="00000018" />
+  <globl name="_free" seg=".text" off="00000071" />
+  <extrn name="_free1" />
+  <local name="_getResponse" seg=".text" off="0000002b" />
+  <globl name="_malloc" seg=".text" off="00000099" />
+  <extrn name="_malloc1" />
+  <globl name="_mc_initRPC" seg=".text" off="00000157" />
+  <extrn name="_message_send" />
+  <extrn name="_mq_register" />
+  <globl name="_putchar" seg=".text" off="000000c2" />
+  <globl name="_responseAreas" seg="cacheline" off="00000000" />
+  <local name="_rpcServer" seg=".text" off="00000105" />
+  <extrn name="_thread_yield" />
+</object>

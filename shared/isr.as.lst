@@ -1,0 +1,199 @@
+                                                        // BEEHIVE GCC 2010.07.09.18.09  (no pre-modify) (mult)
+                                                        // ------------------------------------------------------------
+                                                        // Standard as definitions
+                                                        
+$0                                                      zero = $0    // fixed zero
+$0                                                      void = $0    // void destination
+$1                                                      r1 = $1      // function return value
+$2                                                      r2 = $2      // not callee save
+$3                                                      r3 = $3      // not callee save, function argument 1
+$4                                                      r4 = $4      // not callee save, function argument 2
+$5                                                      r5 = $5      // not callee save, function argument 3
+$6                                                      r6 = $6      // not callee save, function argument 4
+$7                                                      r7 = $7      // not callee save, function argument 5
+$8                                                      r8 = $8      // not callee save, function argument 6
+$9                                                      r9 = $9      // callee save
+$10                                                     r10 = $10    // callee save
+$11                                                     r11 = $11    // callee save
+$12                                                     r12 = $12    // callee save
+$13                                                     r13 = $13    // callee save
+$14                                                     r14 = $14    // callee save
+$15                                                     r15 = $15    // callee save
+$16                                                     r16 = $16    // callee save
+$17                                                     r17 = $17    // callee save
+$18                                                     r18 = $18    // callee save
+$19                                                     r19 = $19    // callee save
+$20                                                     r20 = $20    // callee save
+$21                                                     r21 = $21    // callee save
+$22                                                     r22 = $22    // callee save
+$23                                                     fp = $23     // callee save, frame pointer
+$24                                                     t1 = $24     // not callee save, temporary 1, not avail for reg alloc
+$25                                                     t2 = $25     // not callee save, temporary 2, not avail for reg alloc
+$26                                                     t3 = $26     // not callee save, temporary 3, not avail for reg alloc
+$27                                                     p1 = $27     // not callee save, platform 1, not avail for reg alloc
+$28                                                     sp = $28     // callee save, stack pointer
+$29                                                     vb = $29     // not callee save, rw & rb only, not avail for reg alloc
+                                                        
+  00000000                                                  .assume   zero,0
+                                                        
+                                                        // ------------------------------------------------------------
+                                                                .file   "isr.c"
+                                                                .code
+                                                                .alignw 1
+                                                                .globl  _isr
+                                                                .type   _isr, @function
+C 00000000                                              _isr:
+                                                        // 4 "isr.c" 1
+                                                                //close the interrupt
+C 00000000 07c00605  WQ = $31 = $0 ADD 00000001                 ld              wq,1
+C 00000001 00006a06  AQW = $0 = $0 ADD 0000001a                 aqw_ld void,26
+                                                        
+                                                                //save 0-30 register
+C 00000002 0fc00305  WQ = $31 = $1 OR 00000000                  ld       wq, $1 
+C 00000003 17c00305  WQ = $31 = $2 OR 00000000                  ld       wq, $2  
+C 00000004 1fc00305  WQ = $31 = $3 OR 00000000                  ld       wq, $3  
+C 00000005 27c00305  WQ = $31 = $4 OR 00000000                  ld       wq, $4  
+C 00000006 2fc00305  WQ = $31 = $5 OR 00000000                  ld       wq, $5  
+C 00000007 37c00305  WQ = $31 = $6 OR 00000000                  ld       wq, $6  
+C 00000008 3fc00305  WQ = $31 = $7 OR 00000000                  ld       wq, $7  
+C 00000009 47c00305  WQ = $31 = $8 OR 00000000                  ld       wq, $8  
+C 0000000a 4fc00305  WQ = $31 = $9 OR 00000000                  ld       wq, $9  
+C 0000000b 57c00305  WQ = $31 = $10 OR 00000000                 ld       wq, $10 
+C 0000000c 5fc00305  WQ = $31 = $11 OR 00000000                 ld       wq, $11 
+C 0000000d 67c00305  WQ = $31 = $12 OR 00000000                 ld       wq, $12 
+C 0000000e 6fc00305  WQ = $31 = $13 OR 00000000                 ld       wq, $13 
+C 0000000f 77c00305  WQ = $31 = $14 OR 00000000                 ld       wq, $14 
+C 00000010 7fc00305  WQ = $31 = $15 OR 00000000                 ld       wq, $15 
+C 00000011 87c00305  WQ = $31 = $16 OR 00000000                 ld       wq, $16 
+C 00000012 8fc00305  WQ = $31 = $17 OR 00000000                 ld       wq, $17 
+C 00000013 97c00305  WQ = $31 = $18 OR 00000000                 ld       wq, $18 
+C 00000014 9fc00305  WQ = $31 = $19 OR 00000000                 ld       wq, $19 
+C 00000015 a7c00305  WQ = $31 = $20 OR 00000000                 ld       wq, $20 
+C 00000016 afc00305  WQ = $31 = $21 OR 00000000                 ld       wq, $21 
+C 00000017 b7c00305  WQ = $31 = $22 OR 00000000                 ld       wq, $22 
+C 00000018 bfc00305  WQ = $31 = $23 OR 00000000                 ld       wq, $23 
+C 00000019 c7c00305  WQ = $31 = $24 OR 00000000                 ld       wq, $24 
+C 0000001a cfc00305  WQ = $31 = $25 OR 00000000                 ld       wq, $25 
+C 0000001b d7c00305  WQ = $31 = $26 OR 00000000                 ld       wq, $26 
+C 0000001c dfc00305  WQ = $31 = $27 OR 00000000                 ld       wq, $27 
+C 0000001d e7c00305  WQ = $31 = $28 OR 00000000                 ld       wq, $28 
+C 0000001e 07c07405  WQ = $31 = $0 ADD $29                      add      wq, zero, $29  
+C 0000001f f7c00305  WQ = $31 = LINK OR 00000000                ld       wq, link
+                                                                //write address
+C 00000020 00407a05  $1 = $0 ADD 0000001e                       ld                $1,30
+C 00000021 0400060f  J7 0, $0 ADD 00000001                      j7       1        
+C 00000022 f7801245  LINK = $30 = LINK SUB 00000004             sub  link, link, 4 
+C 00000023 f7801206  AQW = LINK = $30 = LINK ADD 00000004         aqw_add  link, link, 4 
+C 00000024 08400645  $1 = $1 SUB 00000001                       sub      $1, $1, 1 
+C 00000025 f8000a4e  JNZ PC SUB 00000002                        jnz      .-2 
+                                                                //get condition register
+C 00000026 0743ea07  AQR = $29 = $0 ADD 000000fa                aqr_ld    vb,250
+C 00000027 e8800305  $2 = RQ OR 00000000                        ld                $2,rq
+C 00000028 17c00305  WQ = $31 = $2 OR 00000000                  ld                wq,$2
+C 00000029 f7801206  AQW = LINK = $30 = LINK ADD 00000004         aqw_add  link,link,4
+                                                                //get saved pc
+C 0000002a 0741ea07  AQR = $29 = $0 ADD 0000007a                aqr_ld    vb,122
+C 0000002b e8800305  $2 = RQ OR 00000000                        ld                $2,rq
+C 0000002c 17c00305  WQ = $31 = $2 OR 00000000                  ld                wq,$2
+C 0000002d f7801206  AQW = LINK = $30 = LINK ADD 00000004         aqw_add  link,link,4
+                                                                //ld            sp,link
+                                                        
+                                                                //do schedule
+C 0000002e 00000003* LINK = 00000000                            long_call   _schedule
+C 0000002f f0000308* CALL LINK OR 00000000              
+                                                        
+C 00000030 0400060f  J7 0, $0 ADD 00000001                      j7  1
+C 00000031 f7801245  LINK = $30 = LINK SUB 00000004             sub      link, link, 4  
+C 00000032 00408205  $1 = $0 ADD 00000020                       ld       $1, 32      
+C 00000033 f7801207  AQR = LINK = $30 = LINK ADD 00000004         aqr_add  link, link, 4  
+C 00000034 08400645  $1 = $1 SUB 00000001                       sub      $1, $1, 1
+C 00000035 f8000a4e  JNZ PC SUB 00000002                        jnz      .-2            
+C 00000036 e8400305  $1 = RQ OR 00000000                        ld       $1, rq         
+C 00000037 e8800305  $2 = RQ OR 00000000                        ld       $2, rq         
+C 00000038 e8c00305  $3 = RQ OR 00000000                        ld       $3, rq         
+C 00000039 e9000305  $4 = RQ OR 00000000                        ld       $4, rq         
+C 0000003a e9400305  $5 = RQ OR 00000000                        ld       $5, rq         
+C 0000003b e9800305  $6 = RQ OR 00000000                        ld       $6, rq         
+C 0000003c e9c00305  $7 = RQ OR 00000000                        ld       $7, rq         
+C 0000003d ea000305  $8 = RQ OR 00000000                        ld       $8, rq         
+C 0000003e ea400305  $9 = RQ OR 00000000                        ld       $9, rq         
+C 0000003f ea800305  $10 = RQ OR 00000000                       ld       $10, rq        
+C 00000040 eac00305  $11 = RQ OR 00000000                       ld       $11, rq        
+C 00000041 eb000305  $12 = RQ OR 00000000                       ld       $12, rq        
+C 00000042 eb400305  $13 = RQ OR 00000000                       ld       $13, rq        
+C 00000043 eb800305  $14 = RQ OR 00000000                       ld       $14, rq        
+C 00000044 ebc00305  $15 = RQ OR 00000000                       ld       $15, rq        
+C 00000045 ec000305  $16 = RQ OR 00000000                       ld       $16, rq        
+C 00000046 ec400305  $17 = RQ OR 00000000                       ld       $17, rq        
+C 00000047 ec800305  $18 = RQ OR 00000000                       ld       $18, rq        
+C 00000048 ecc00305  $19 = RQ OR 00000000                       ld       $19, rq        
+C 00000049 ed000305  $20 = RQ OR 00000000                       ld       $20, rq        
+C 0000004a ed400305  $21 = RQ OR 00000000                       ld       $21, rq        
+C 0000004b ed800305  $22 = RQ OR 00000000                       ld       $22, rq        
+C 0000004c edc00305  $23 = RQ OR 00000000                       ld       $23, rq        
+C 0000004d ee000305  $24 = RQ OR 00000000                       ld       $24, rq        
+C 0000004e ee400305  $25 = RQ OR 00000000                       ld       $25, rq        
+C 0000004f ee800305  $26 = RQ OR 00000000                       ld       $26, rq        
+C 00000050 eec00305  $27 = RQ OR 00000000                       ld       $27, rq        
+C 00000051 ef000305  $28 = RQ OR 00000000                       ld       $28, rq        
+C 00000052 ef400305  $29 = RQ OR 00000000                       ld       $29, rq        
+C 00000053 ef800305  LINK = $30 = RQ OR 00000000                ld       link, rq       
+                                                                
+                                                                //open interrupt
+C 00000054 07c000c5  WQ = $31 = $0 ANDN $0                      ld              wq,0
+C 00000055 00006a06  AQW = $0 = $0 ADD 0000001a                 aqw_ld void,26
+                                                        
+                                                                //set conditon register
+C 00000056 efc00305  WQ = $31 = RQ OR 00000000                  ld          wq,rq
+C 00000057 0003ea06  AQW = $0 = $0 ADD 000000fa                 aqw_ld void,250
+                                                        
+C 00000058 e800030c  J RQ OR 00000000                           j                 rq             
+                                                        //      j .
+                                                                
+                                                                .size   _isr, .-_isr
+                                                                .ident  "GCC: (GNU) 4.3.3"
+
+assume   $0 = 00000000
+
+                        .text + 00000059     .
+                        .text + 00000000  G  _isr
+                             <undefined>  E  _schedule
+                                00000000     code.rota
+                                00000001     code.step
+                                00000002     data.rota
+                                00000004     data.step
+                                     $23     fp
+                                    link     link
+                                     $27     p1
+                                      pc     pc
+                                      $1     r1
+                                     $10     r10
+                                     $11     r11
+                                     $12     r12
+                                     $13     r13
+                                     $14     r14
+                                     $15     r15
+                                     $16     r16
+                                     $17     r17
+                                     $18     r18
+                                     $19     r19
+                                      $2     r2
+                                     $20     r20
+                                     $21     r21
+                                     $22     r22
+                                      $3     r3
+                                      $4     r4
+                                      $5     r5
+                                      $6     r6
+                                      $7     r7
+                                      $8     r8
+                                      $9     r9
+                                      rq     rq
+                                     $28     sp
+                                     $24     t1
+                                     $25     t2
+                                     $26     t3
+                                     $29     vb
+                                      $0     void
+                                      wq     wq
+                                      $0     zero

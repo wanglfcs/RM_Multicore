@@ -1,0 +1,169 @@
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // timerInterrupt                                                         //
+                                                        //                                                                        //
+                                                        // Raw inter-core hardware: messages, cache management, semaphores.       //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        
+                                                        // Imports:
+                                                                .include "stdas.as"
+                                                        // ------------------------------------------------------------
+                                                        // Standard as definitions
+                                                        
+$0                                                      zero = $0    // fixed zero
+$1                                                      r1 = $1      // function return value
+$2                                                      r2 = $2      // not callee save
+$3                                                      r3 = $3      // not callee save, function argument 1
+$4                                                      r4 = $4      // not callee save, function argument 2
+$5                                                      r5 = $5      // not callee save, function argument 3
+$6                                                      r6 = $6      // not callee save, function argument 4
+$7                                                      r7 = $7      // not callee save, function argument 5
+$8                                                      r8 = $8      // not callee save, function argument 6
+$9                                                      r9 = $9      // callee save
+$10                                                     r10 = $10    // callee save
+$11                                                     r11 = $11    // callee save
+$12                                                     r12 = $12    // callee save
+$13                                                     r13 = $13    // callee save
+$14                                                     r14 = $14    // callee save
+$15                                                     r15 = $15    // callee save
+$16                                                     r16 = $16    // callee save
+$17                                                     r17 = $17    // callee save
+$18                                                     r18 = $18    // callee save
+$19                                                     r19 = $19    // callee save
+$20                                                     r20 = $20    // callee save
+$21                                                     r21 = $21    // callee save
+$22                                                     r22 = $22    // callee save
+$23                                                     fp = $23     // callee save, frame pointer
+$24                                                     t1 = $24     // not callee save, temporary 1, not avail for reg alloc
+$25                                                     t2 = $25     // not callee save, temporary 2, not avail for reg alloc
+$26                                                     t3 = $26     // not callee save, temporary 3, not avail for reg alloc
+$27                                                     p1 = $27     // not callee save, platform 1, not avail for reg alloc
+$28                                                     sp = $28     // callee save, stack pointer
+$29                                                     vb = $29     // not callee save, rw & rb only, not avail for reg alloc
+                                                        
+  00000000                                                  .assume   zero,0
+                                                        
+                                                        // ------------------------------------------------------------
+                                                        
+                                                        // Exports:
+                                                                .file "timerInterrupt.as"
+                                                                
+                                                                
+                                                                .globl  _set_mask
+                                                                .globl  _set_timerInterval
+                                                                .globl  _set_handlerR
+                                                        
+                                                        // Constants:
+  0000001a                                                      timerInerruptControl_mask = 26
+  0000003a                                                      timerInerruptControl_timeInterval = 58
+  0000005a                                                      timerInerruptControl_handlerR = 90
+                                                        
+                                                        
+                                                                
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        
+                                                        //                                                                        //
+                                                        // void message_send(int dest, int type, IntercoreMessage *buf, int len)  //
+                                                        //                                                                        //
+                                                        // Send a message to core number "dest", using "len" words at "buf".      //
+                                                        //                                                                        //
+                                                        // Arguments are in r3-r6                                                 //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _set_mask, @function
+C 00000000                                              _set_mask:
+C 00000000 1fc00305  WQ = $31 = $3 OR 00000000              ld  wq, r3
+C 00000001 07406a06  AQW = $29 = $0 ADD 0000001a            aqw_ld vb, timerInerruptControl_mask
+C 00000002 f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _set_mask,.-_set_mask
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // unsigned int message_recv(IntercoreMessage *buf)                       //
+                                                        //                                                                        //
+                                                        // Receive a message into "buf" and return its status, or 0.              //
+                                                        //                                                                        //
+                                                        // Argument is in r3, result goes in r1                                   //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _set_timer, @function
+C 00000003                                              _set_timerInterval:
+C 00000003 1fc00305  WQ = $31 = $3 OR 00000000              ld  wq, r3
+C 00000004 0740ea06  AQW = $29 = $0 ADD 0000003a            aqw_ld vb, timerInerruptControl_timeInterval 
+C 00000005 f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _set_timerInterval,.-_set_timerInterval
+                                                        
+                                                        
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                        //                                                                        //
+                                                        // void cache_flush(int line, int countMinus1)                            //
+                                                        //                                                                        //
+                                                        // Flush a cache line                                                     //
+                                                        //                                                                        //
+                                                        // Arguments are in r3-r4                                                 //
+                                                        //                                                                        //
+                                                        // The implementation has no uses of LINK, including long_* ops, so we    //
+                                                        // don't need to preserve LINK on the stack.                              //
+                                                        //                                                                        //
+                                                        ////////////////////////////////////////////////////////////////////////////
+                                                                .type   _set_handlerR, @function
+C 00000006                                              _set_handlerR:
+C 00000006 1fc00305  WQ = $31 = $3 OR 00000000              ld  wq, r3
+C 00000007 07416a06  AQW = $29 = $0 ADD 0000005a            aqw_ld vb, timerInerruptControl_handlerR
+C 00000008 f000030c  J LINK OR 00000000                         j       link
+                                                                .size   _set_handlerR,.-_set_handlerR
+
+assume   $0 = 00000000
+
+                        .text + 00000009     .
+                        .text + 00000006  G  _set_handlerR
+                        .text + 00000000  G  _set_mask
+                        .text + 00000003  G  _set_timerInterval
+                                00000000     code.rota
+                                00000001     code.step
+                                00000002     data.rota
+                                00000004     data.step
+                                     $23     fp
+                                    link     link
+                                     $27     p1
+                                      pc     pc
+                                      $1     r1
+                                     $10     r10
+                                     $11     r11
+                                     $12     r12
+                                     $13     r13
+                                     $14     r14
+                                     $15     r15
+                                     $16     r16
+                                     $17     r17
+                                     $18     r18
+                                     $19     r19
+                                      $2     r2
+                                     $20     r20
+                                     $21     r21
+                                     $22     r22
+                                      $3     r3
+                                      $4     r4
+                                      $5     r5
+                                      $6     r6
+                                      $7     r7
+                                      $8     r8
+                                      $9     r9
+                                      rq     rq
+                                     $28     sp
+                                     $24     t1
+                                     $25     t2
+                                     $26     t3
+                                0000005a     timerInerruptControl_handlerR
+                                0000001a     timerInerruptControl_mask
+                                0000003a     timerInerruptControl_timeInterval
+                                     $29     vb
+                                      wq     wq
+                                      $0     zero
