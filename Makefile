@@ -8,6 +8,6 @@ all:
 	Bas -x -datarota=2 -lst task_scheduler.lst task_scheduler.s
 	Bld -o aabb.out -codebase=1000 -datafloat ${APIARY}/lib/base.o my_math.o task_scheduler.o main.o -L${APIARY}/lib -lmc -lc -lgcc
 	Bimg aabb.out
-	cp aabb.img ~/tftp/aabb
+	cp aabb.img ~/share/aaab
 clean:
 	rm -rf *.s *.o *.img *.out *.lst

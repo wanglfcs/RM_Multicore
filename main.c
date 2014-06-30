@@ -6,6 +6,11 @@
 #include "shared/counters.h"
 #include "shared/timerInterrupt.h"
 #include "task_scheduler.h"
+struct Task globalTasks[5];
+char globalTaskNames[5][80]={"t1","t2","t3","t4","t5"};
+char globalProcessorNames[4][80];
+struct Processor globalProcessor[4];
+struct TaskNode globalTaskNode[8];
 
 //#define CLOCK_TO_MS(clock, ms) { ms = (clock/10000);}
 const int CLOCK_PER_MS = 100000;
@@ -70,7 +75,7 @@ void mc_main() {
 		puts("ff distribute task start");
 		ff_distribute_task(s_tasks, 5, s_processors, 2);
 		puts("ff distribute task done");
-		//print_all();
+		print_all();
 		wait_after_done = 1;
 
 		icSema_V(1);	
@@ -89,6 +94,7 @@ void mc_main() {
 		//set interrupt enable
 		set_mask(0);
 		icSema_V(1);
+		task_1();
 	}
 	idle();
 }
@@ -129,6 +135,8 @@ void init()
 		s_tasks[i].c = test_func_execute_time(s_tasks[i].func);
 		s_tasks[i].t = s_tasks[i].c*4;
 		s_tasks[i].saved_state[30] = (int)isr;
+		printf("task %d addr %8x\n",i,(int)s_tasks[i].func);
+		printf("s_tasks[%d] addr=%8x\n",i,(int )(s_tasks+i));
 	}
 
 	s_tasks[0].saved_state[31] = (int)task_1;
@@ -157,6 +165,7 @@ void schedule(){
 	Task *task_to_run= rm_schedule(timer, p);
 
 	if(task_to_run!=NULL){
+		printf("task_to_run addr=%8x\n",(int)task_to_run);
 		//icSema_P(2);
 		printf("Run %s:%s\n",p->name, task_to_run->name);
 		//icSema_V(2);	
@@ -181,11 +190,19 @@ void schedule(){
 			printf("Restore task %s\n",task_to_run->name);
 			for (i = 0; i < 32; i++){
 				pData[i] = task_to_run->saved_state[i];
+				//pData[i] = pre_task->saved_state[i];
+				printf("pData[%d]=%8x\n",i,pData[i]);
 			}
 		}
+		
 	}else{
 		printf("No Switch\n");	
 	}
+	dump_task(task_to_run);
+	for(i=0;i<5;i++)
+		printf("task %d eip=%8x\n",i,s_tasks[i].saved_state[31]);
+
+	printf("eip value=%8x\n",pData[31]);
 }
 
 void compute(){
@@ -199,7 +216,7 @@ void compute(){
 /* Task 1 Reverse Integer */
 void task_1() {
 	puts("Task1 Start");
-	for(int i=0;i<10;i++){
+	for(int i=0;i<5;i++){
 		compute();	
 	}
 

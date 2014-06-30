@@ -5,8 +5,14 @@
 #include <stddef.h>
 #include <string.h>
 
+extern Task globalTasks[5];
+extern char globalTaskNames[5][80];
+extern Processor globalProcessor[4];
+extern char globalProcessorNames[4][80];
+extern struct TaskNode globalTaskNode[8];
 Task* new_tasks(char *names[], int size){
-	Task *t = (Task *)malloc(sizeof(Task)*size);
+	//Task *t = (Task *)malloc(sizeof(Task)*size);
+	Task *t = globalTasks;
 	for (int i = 0; i < size; i++){
 		t[i].c = 0;
 		t[i].d = 0;
@@ -17,8 +23,9 @@ Task* new_tasks(char *names[], int size){
 		char *name = names[i];
 		int namelen = strlen(name);
 		printf("name:%s len:%d", name, namelen);
-		t[i].name = (char *)malloc(sizeof(char) *namelen);
-		strcpy(t[i].name, name);
+		//t[i].name = (char *)malloc(sizeof(char) *namelen);
+		t[i].name=(char *)(globalTaskNames+i);
+		//strcpy(t[i].name, name);
 		//t[i].name = names[i];
 		t[i].ready = 0;
 		t[i].execute_time = 0;
@@ -27,7 +34,8 @@ Task* new_tasks(char *names[], int size){
 }
 
 Processor* new_processors(char* names[], int size){
-	Processor *p = (Processor *)malloc(sizeof(Processor)*size);
+	//Processor *p = (Processor *)malloc(sizeof(Processor)*size);
+	Processor *p=globalProcessor;
 	Processor *t;
 	for (int i = 0; i < size; i++){
 		//t = p+i;
@@ -43,7 +51,8 @@ Processor* new_processors(char* names[], int size){
 		char *name = names[i];
 		int namelen = strlen(name);
 		printf("name:%s len:%d", name, namelen);
-		p[i].name = (char *)malloc(sizeof(char) *namelen);
+		//p[i].name = (char *)malloc(sizeof(char) *namelen);
+		p[i].name=globalProcessorNames[i];
 		strcpy(p[i].name, name);
 		//p[i].name = name[i];
 	}
@@ -101,6 +110,7 @@ Task* rm_schedule(int time, Processor *processor){
 	Task *cur_task = NULL;
 	int first = 1;
 	while (cur_node!=NULL){
+		printf("rm_schedule cur_node->task=%8x\n",(int)cur_node->task);
 		cur_task = cur_node->task;
 		if (time%cur_task->t == 0){
 			cur_task->ready++;
@@ -130,7 +140,8 @@ void set_tasks(Processor *p, Task *t, int task_cnt){
 }
 
 void push_task(Processor *p, Task *t){
-	 TaskNode *new_node = malloc(sizeof(TaskNode));
+	 //TaskNode *new_node = malloc(sizeof(TaskNode));
+	 TaskNode *new_node=globalTaskNode;
 	 new_node->task = t;
 	 new_node->next = NULL;
 
@@ -156,18 +167,18 @@ void push_task(Processor *p, Task *t){
 
 void ff_distribute_task(Task *tasks, int task_cnt, Processor *processors, int processor_cnt){
 	Task maxPeriodTask = *(tasks + task_cnt - 1);
-	Task curTask;
+	Task *curTask;
 
 	// devide tasks for processors using FF algorithm
 	for (int i = 0; i < task_cnt; i++){
-		curTask = *(tasks + i);
+		curTask = (tasks + i);
 		//Find first non-empty processor and try to put curTask in it.
 		for (int j = 0; j < processor_cnt; j++){
-			Processor p = *(processors + j);
-			double new_usage = p.usage + (double)curTask.c / (double)curTask.t;
-			int count = p.task_cnt;
+			Processor *p = (processors + j);
+			double new_usage = p->usage + (double)curTask->c / (double)curTask->t;
+			int count = p->task_cnt;
 			if (rm_schedulable_inner(new_usage, count + 1)){
-				push_task(processors + j, tasks + i);
+				push_task(p, curTask);
 				break;
 			}
 		}
