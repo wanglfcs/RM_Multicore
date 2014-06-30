@@ -14,14 +14,19 @@ Task* new_tasks(char *names[], int size){
 		t[i].t = 0;
 		t[i].index = i + 1;
 		t[i].func = NULL;
-		t[i].name = names[i];
+		char *name = names[i];
+		int namelen = strlen(name);
+		printf("name:%s len:%d", name, namelen);
+		t[i].name = (char *)malloc(sizeof(char) *namelen);
+		strcpy(t[i].name, name);
+		//t[i].name = names[i];
 		t[i].ready = 0;
 		t[i].execute_time = 0;
 	}
 	return t;
 }
 
-Processor* new_processors(char* name[], int size){
+Processor* new_processors(char* names[], int size){
 	Processor *p = (Processor *)malloc(sizeof(Processor)*size);
 	Processor *t;
 	for (int i = 0; i < size; i++){
@@ -35,7 +40,12 @@ Processor* new_processors(char* name[], int size){
 		p[i].tasksList = NULL;
 		p[i].task_cnt = 0;
 		p[i].cur_task = NULL;
-		p[i].name = name[i];
+		char *name = names[i];
+		int namelen = strlen(name);
+		printf("name:%s len:%d", name, namelen);
+		p[i].name = (char *)malloc(sizeof(char) *namelen);
+		strcpy(p[i].name, name);
+		//p[i].name = name[i];
 	}
 	return p;
 }
@@ -178,8 +188,7 @@ void dump_processor(Processor *p){
 
 void dump_task(Task *t){
 	printf("{\n");
-	printf("  Task %s\n", t->name);
-	printf("  index %d\n", t->index);
-	printf("  C:%d T:%d D:%d P:%d ExeTime:%d\n", t->c, t->t, t->d, t->p, t->execute_time);
+	printf("  Task %s index=%d\n", t->name, t->index);
+	printf("  C:%d T:%d D:%d P:%d ExeTime:%d Ready:%d\n", t->c, t->t, t->d, t->p, t->execute_time, t->ready);
 	printf("}\n");
 }
