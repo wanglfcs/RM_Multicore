@@ -4,6 +4,7 @@
 #include "my_math.h"
 #include <stddef.h>
 #include <string.h>
+#include"memManage.h"
 
 extern Task globalTasks[5];
 extern char globalTaskNames[5][80];
@@ -11,8 +12,8 @@ extern Processor globalProcessor[4];
 extern char globalProcessorNames[4][80];
 extern struct TaskNode globalTaskNode[8];
 Task* new_tasks(char *names[], int size){
-	//Task *t = (Task *)malloc(sizeof(Task)*size);
-	Task *t = globalTasks;
+	Task *t = (Task *)mMalloc(sizeof(Task)*size);
+	//Task *t = globalTasks;
 	for (int i = 0; i < size; i++){
 		t[i].c = 0;
 		t[i].d = 0;
@@ -23,8 +24,8 @@ Task* new_tasks(char *names[], int size){
 		char *name = names[i];
 		int namelen = strlen(name);
 		printf("name:%s len:%d", name, namelen);
-		//t[i].name = (char *)malloc(sizeof(char) *namelen);
-		t[i].name=(char *)(globalTaskNames+i);
+		t[i].name = (char *)mMalloc(sizeof(char) *namelen);
+		//t[i].name=(char *)(globalTaskNames+i);
 		//strcpy(t[i].name, name);
 		//t[i].name = names[i];
 		t[i].ready = 0;
@@ -34,8 +35,8 @@ Task* new_tasks(char *names[], int size){
 }
 
 Processor* new_processors(char* names[], int size){
-	//Processor *p = (Processor *)malloc(sizeof(Processor)*size);
-	Processor *p=globalProcessor;
+	Processor *p = (Processor *)mMalloc(sizeof(Processor)*size);
+	//Processor *p=globalProcessor;
 	Processor *t;
 	for (int i = 0; i < size; i++){
 		//t = p+i;
@@ -51,8 +52,8 @@ Processor* new_processors(char* names[], int size){
 		char *name = names[i];
 		int namelen = strlen(name);
 		printf("name:%s len:%d", name, namelen);
-		//p[i].name = (char *)malloc(sizeof(char) *namelen);
-		p[i].name=globalProcessorNames[i];
+		p[i].name = (char *)mMalloc(sizeof(char) *namelen);
+		//p[i].name=globalProcessorNames[i];
 		strcpy(p[i].name, name);
 		//p[i].name = name[i];
 	}
@@ -140,11 +141,16 @@ void set_tasks(Processor *p, Task *t, int task_cnt){
 }
 
 void push_task(Processor *p, Task *t){
-	 //TaskNode *new_node = malloc(sizeof(TaskNode));
-	 TaskNode *new_node=globalTaskNode;
+	 TaskNode *new_node = (TaskNode*)mMalloc(sizeof(TaskNode));
+	 printf("push_task new_node addr=%8x,p=%8x,t=%8x\n",new_node,p,t);
+	 //TaskNode *new_node=globalTaskNode;
 	 new_node->task = t;
-	 new_node->next = NULL;
+	 //printf("flags\n");
+	 __asm__("j7 7");
+	 new_node->next = 0;
+	 printf("flags\n");
 
+	 printf("p->taskslist=%8x\n",p->tasksList);
 	 if (p->tasksList == NULL){
 		 p->tasksList = new_node;
 	 }
@@ -163,6 +169,7 @@ void push_task(Processor *p, Task *t){
 	 }
 	 p->task_cnt++;
 	 p->usage += (double)t->c / (double)t->t;
+	 printf("finish push_task\n");
 }
 
 void ff_distribute_task(Task *tasks, int task_cnt, Processor *processors, int processor_cnt){

@@ -6,6 +6,10 @@
 #include "shared/counters.h"
 #include "shared/timerInterrupt.h"
 #include "task_scheduler.h"
+#include "memManage.h"
+char mem[100000];
+long memPoolSize=100000;
+void *memPool=(void *)mem;
 struct Task globalTasks[5];
 char globalTaskNames[5][80]={"t1","t2","t3","t4","t5"};
 char globalProcessorNames[4][80];
@@ -62,6 +66,8 @@ void on_task_done(){
 }
 
 void mc_init() {
+	printf("memPool addr=%8x\n",memPool);
+
 	
 }
 
@@ -69,6 +75,7 @@ void mc_main() {
 	int core = corenum();
 	
 	if(core == 2){
+		initMemManage(memPool,memPoolSize);
 		icSema_P(1);
 		wait_after_done = 0;
 		init();
