@@ -9,8 +9,8 @@ void initMemManage(void *memPool,long memPoolSize)
 	freeHead=mmNode;
 	memset(mmNode,0,sizeof(mmNode));
 	memset(assTable,0,sizeof(assTable));
-	freeHead->start=memPool;
-	freeHead->length=memPoolSize;
+	freeHead->start=(void *)roundUp((long)memPool);
+	freeHead->length=memPoolSize-4;
 	freeHead->next=0;
 	freeHead->used=1;
 }
@@ -20,6 +20,7 @@ void* mMalloc(int size)
 {
 	freeUnit *fptr=freeHead,*res=0;
 	assignMemTable *assNodePtr=0;
+	size=roundUp(size);
 	int diff=-1;
 	while(fptr)
 	{
@@ -141,4 +142,16 @@ void mFree(void *ptr)
 	tptr->start=ptr;
 	tptr->next=freeHead;
 	freeHead=tptr;
+}
+
+long roundUp(long addr)
+{
+	switch(addr%4)
+	{
+		case 0:return addr;
+		case 1:return addr+3;
+		case 2:return addr+2;
+		case 3:return addr+1;
+	};
+	return 0;
 }

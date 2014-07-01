@@ -26,4 +26,5 @@ freeUnit *findMmNode();
 
 assignMemTable *findAssNode();
 
+long roundUp(long num);
 #endif
